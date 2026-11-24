@@ -38,4 +38,4 @@ Upload the same files (as a folder or zip with `index.html` at the top level) to
 All records are stored in the browser (IndexedDB) of the device and address where the app is opened. A new web address starts empty. To move data: **Settings → Backup (JSON)** on the old address, then **Settings → Restore** on the new one. Back up regularly.
 
 ## QR code link
-The QR code in **Settings → Share App (QR Code)** is pre-set to `https://jugnu-mineralwater.jugnutech.workers.dev`. If you publish at another address, type that address in the link field in the same card and press **Save Link**.
+The QR code in **Settings → Share App (QR Code)** is pre-set to `https://jugnutechpk.github.io/jugnu-mineralwater/`. If you publish at another address, type that address in the link field in the same card and press **Save Link**.

@@ -1,5 +1,5 @@
 /* Network-first service worker: always loads the newest version when online, falls back to the saved copy when offline. App data lives in IndexedDB and is not touched. */
-const V='jugnu-water-v1',FILES=['./','index.html','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png'];
+const V='jugnu-water-v1',FILES=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET'||new URL(r.url).origin!==location.origin)return;

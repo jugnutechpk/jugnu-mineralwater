@@ -18,7 +18,7 @@ Created by **Jugnu Technology**.
 | File | Purpose |
 |---|---|
 | `index.html` | The complete application (HTML, CSS and JavaScript in one file) |
-| `manifest.webmanifest`, `icons/` | Home-screen install (name, colours, icons) |
+| `manifest.webmanifest`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png` | Home-screen install (name, colours, JugnuTechPK logo icons) |
 | `sw.js` | Service worker: opens the app when offline, always loads the newest version when online |
 | `_headers` | Optional security/cache headers for Cloudflare hosting (ignored by GitHub Pages) |
 
@@ -26,7 +26,7 @@ Created by **Jugnu Technology**.
 Open `index.html` in Chrome or Edge. (Offline mode, install and the share menu need the app to be served over `https://`.)
 
 ## Publish with GitHub Pages (free)
-1. Create a repository on GitHub and upload all these files (keep the `icons` folder).
+1. Create a repository on GitHub and upload all these files (all files sit in the top level, there is no sub-folder).
 2. Repository **Settings → Pages → Build and deployment → Source: Deploy from a branch**, choose branch `main` and folder `/ (root)`, then **Save**.
 3. After a minute the app is live at `https://<your-username>.github.io/<repository-name>/`.
 4. Open it on the phone in Chrome → menu (⋮) → **Add to Home screen**.

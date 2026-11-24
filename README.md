@@ -11,6 +11,7 @@ Created by **Jugnu Technology**.
 - **Order** – send a bottle order (with the orderer's name and mobile number) to the supplier; edit or delete placed orders.
 - **Reports** – daily supplies, monthly consumption and expenditure, payment history, outstanding balances, price history; print and CSV export.
 - **WhatsApp** – text and colourful image updates through WhatsApp click-to-chat / the phone share menu (no WhatsApp API needed).
+- **Auto Backup** – choose a backup folder once (Chrome on computers and supported phones) and the app saves your records there automatically after every change, keeping one file per day for 30 days. Where the browser cannot write to a chosen folder, it saves one backup file a day into the Downloads folder instead.
 - **Settings** – bottle price history, supplier details, JSON backup / restore, and a **QR code** to share the app link (PNG, PDF, WhatsApp, copy, print).
 - Works offline after the first visit and can be installed to the phone home screen.
 

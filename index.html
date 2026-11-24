@@ -976,7 +976,7 @@ let S=fresh(),view='dash',selM=mk(today()),edit=null,rep={type:'daily',m:mk(toda
 /* ---- storage (IndexedDB) ---- */
 const idb=()=>new Promise((res,rej)=>{const r=indexedDB.open('HomeWaterRecord',1);r.onupgradeneeded=()=>r.result.createObjectStore('kv');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});
 async function load(){try{const d=await idb();const v=await new Promise((res,rej)=>{const q=d.transaction('kv').objectStore('kv').get('state');q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)});if(v)S=JSON.parse(v);}catch(e){toast('Storage unavailable – data will not be kept')}}
-async function save(){try{const d=await idb();d.transaction('kv','readwrite').objectStore('kv').put(JSON.stringify(S),'state')}catch(e){toast('Could not save data!')}}
+async function save(nb){try{const d=await idb();d.transaction('kv','readwrite').objectStore('kv').put(JSON.stringify(S),'state')}catch(e){toast('Could not save data!')}if(!nb)autoBackupSoon()}
 function toast(t){const e=$('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2200)}
 function modal(h){$('mbox').innerHTML=h;$('modal').style.display='flex'}
 function closeM(){$('modal').style.display='none'}
@@ -1175,6 +1175,40 @@ async function qrCopy(){try{await navigator.clipboard.writeText(appUrl())}catch(
 async function qrPrint(){const im=new Image();im.alt='JUGNU Mineral Water QR Code';im.src=qrCanvas(true).toDataURL('image/png');try{await im.decode()}catch(e){}$('qrprint').innerHTML='';$('qrprint').appendChild(im);document.body.classList.add('qrp');const off=()=>{document.body.classList.remove('qrp');window.removeEventListener('afterprint',off)};window.addEventListener('afterprint',off);setTimeout(off,120000);window.print()}
 function showQR(){modal('<b style="color:var(--gold);font-size:18px">JUGNU Mineral Water – QR Code</b><img id="qrimg" alt="QR code to open JUGNU Mineral Water" src="'+qrCanvas(false).toDataURL('image/png')+'" style="width:100%;max-width:380px;display:block;margin:10px auto;border-radius:12px"><div style="text-align:center;word-break:break-all;color:var(--mu);font-size:13px;margin:4px 0 10px">'+appUrl()+'</div><div class="grid" style="grid-template-columns:1fr 1fr;gap:8px"><button id="qb1" style="margin:0" onclick="qrPng()">⬇ Download PNG</button><button id="qb2" style="margin:0" onclick="qrPdfDl()">📄 Download PDF</button><button id="qb3" style="margin:0;background:#22e06b;color:#04230f" onclick="qrWA()">💬 Share on WhatsApp</button><button id="qb4" class="s" style="margin:0" onclick="qrCopy()">🔗 Copy Application Link</button><button id="qb5" class="s" style="margin:0" onclick="qrPrint()">🖨 Print QR Code</button><button class="s" style="margin:0" onclick="closeM()">Close</button></div>')}
 
+/* ---- auto backup ---- */
+const HDB='JugnuWaterHandles';
+function hdb(){return new Promise((res,rej)=>{const r=indexedDB.open(HDB,1);r.onupgradeneeded=()=>r.result.createObjectStore('h');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+async function hget(){try{const d=await hdb();return await new Promise((res,rej)=>{const q=d.transaction('h').objectStore('h').get('dir');q.onsuccess=()=>res(q.result||null);q.onerror=()=>rej(q.error)})}catch(e){return null}}
+async function hset(v){const d=await hdb();return new Promise((res,rej)=>{const t=d.transaction('h','readwrite'),s=t.objectStore('h');if(v)s.put(v,'dir');else s.delete('dir');t.oncomplete=res;t.onerror=()=>rej(t.error)})}
+const canDir=()=>typeof window.showDirectoryPicker==='function';
+const bk=()=>S.backup||(S.backup={mode:'off'});
+const bkTxt=()=>JSON.stringify(S,null,1);
+const hasData=()=>S.deliveries.length||S.payments.length||(S.orders||[]).length;
+function autoBackupSoon(){if(bk().mode!='folder')return;clearTimeout(window._bt);window._bt=setTimeout(()=>backupNow(false),window._bkDelay||4000)}
+async function dirReady(ask){const h=await hget();if(!h)return null;try{let p=await h.queryPermission({mode:'readwrite'});if(p!=='granted'&&ask)p=await h.requestPermission({mode:'readwrite'});return p==='granted'?h:null}catch(e){return null}}
+async function writeBackup(h){const txt=bkTxt();for(const n of['Jugnu-Water-Backup-latest.json','Jugnu-Water-Backup-'+today()+'.json']){const f=await h.getFileHandle(n,{create:true}),w=await f.createWritable();await w.write(txt);await w.close()}
+ const names=[];for await(const [n] of h.entries())if(/^Jugnu-Water-Backup-\d{4}-\d{2}-\d{2}\.json$/.test(n))names.push(n);names.sort();while(names.length>30){try{await h.removeEntry(names.shift())}catch(e){break}}}
+async function backupNow(manual){const b=bk();if(b.mode!='folder')return false;const fin=async s=>{b.status=s;await save(true);if(view=='set')render();return s=='ok'};
+ try{if(!(await hget()))return fin('nohandle');const h=await dirReady(manual);if(!h)return fin('perm');await writeBackup(h);b.last=new Date().toISOString();return fin('ok')}catch(e){return fin('err:'+e.name)}}
+async function pickFolder(){try{const h=await window.showDirectoryPicker({id:'jugnu-water-backup',mode:'readwrite'});await hset(h);const b=bk();b.mode='folder';b.folder=h.name;await save(true);const ok=await backupNow(true);render();toast(ok?'Backup folder set: '+h.name:'Folder saved, but the first backup failed')}catch(e){if(e.name!='AbortError')toast('Could not use this folder ('+e.name+')')}}
+async function manualBackup(){if(bk().mode=='folder'){const ok=await backupNow(true);toast(ok?'Backup saved to your folder':'Backup failed - choose the folder again')}else dlBackup(true)}
+function dlBackup(manual){const b=bk();b.last=new Date().toISOString();b.lastDay=today();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([bkTxt()],{type:'application/json'}));a.download='Jugnu-Water-Backup-'+today()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000);save(true);if(manual)toast('Backup downloaded');if(view=='set')render()}
+async function stopBackup(){await hset(null);S.backup={mode:'off'};await save(true);render();toast('Auto backup turned off')}
+function startDownloadMode(){bk().mode='download';save(true);dlBackup(true)}
+async function bkGesture(e){if(e&&e.isTrusted===false)return;const b=bk();if(b.mode=='folder'&&b.status=='perm'&&!window._askedPerm){window._askedPerm=true;if(await backupNow(true))toast('Auto backup is working')}else if(b.mode=='download'&&b.lastDay!==today()&&hasData())dlBackup(false)}
+async function bkInit(){const b=bk();if(b.mode=='folder'){const h=await dirReady(false);b.status=h?'ok':((await hget())?'perm':'nohandle');if(h&&hasData()&&(!b.last||b.last.slice(0,10)!==today()))await backupNow(false);if(view=='set')render()}}
+if(document.addEventListener)document.addEventListener('click',bkGesture,true);
+function bkCard(){const b=bk(),m=b.mode,dir=canDir(),last=b.last?new Date(b.last).toLocaleString('en-GB'):'-',st=String(b.status||'');let body='';
+ if(dir){
+  if(m=='folder'){const w=st=='perm'?'<p style="color:#ffc928;font-weight:600">⚠ Tap anywhere and press Allow when the browser asks, to keep auto backup working.</p>':st=='nohandle'?'<p style="color:#ffc928;font-weight:600">⚠ Please choose the backup folder again.</p>':st.indexOf('err')==0?'<p class="bad">Backup problem ('+esc(st)+'). Choose the folder again.</p>':'<p class="ok">✅ Auto backup is ON</p>';
+   body=w+'<p>Folder: <b>'+esc(b.folder||'')+'</b><br>Last backup: <b>'+last+'</b></p><small style="color:var(--mu)">A backup is saved automatically every time you change data: one file Jugnu-Water-Backup-latest.json plus one file per day (last 30 days kept). The browser shows only the folder name, never the full path.</small><div class="row" style="margin-top:10px"><button onclick="manualBackup()">💾 Backup now</button><button class="s" onclick="pickFolder()">📁 Change folder</button></div><button class="d" onclick="stopBackup()">Turn off</button>'}
+  else body='<p style="color:var(--mu);font-size:14px">Choose a folder once. The app then saves your backups there automatically.</p><button onclick="pickFolder()">📁 Choose backup folder</button>'}
+ else{
+  if(m=='download')body='<p class="ok">✅ Daily auto backup is ON</p><p>Saves one file a day into your Downloads. Last backup: <b>'+last+'</b></p><div class="row"><button onclick="manualBackup()">💾 Backup now</button><button class="d" onclick="stopBackup()">Turn off</button></div>';
+  else body='<p style="color:var(--mu);font-size:14px">This browser cannot save into a folder you choose. Instead the app can save one backup file a day into your Downloads.</p><button onclick="startDownloadMode()">▶ Turn on daily auto backup</button>';
+  body+='<small style="display:block;color:var(--mu);margin-top:8px">To choose that folder: Chrome menu (3 dots) → Settings → Downloads → Download location.</small>'}
+ return '<div class="card"><b>🗂 Auto Backup</b>'+body+'</div>'}
+
 /* ---- settings ---- */
 function vSet(){const sp=S.supplier;return `<h1>Settings</h1>
  <div class="card"><b>Bottle price</b><p>Current: <b>${rs(priceOn(today()))}</b> <small>(previous supplies never change)</small></p>
@@ -1184,6 +1218,7 @@ function vSet(){const sp=S.supplier;return `<h1>Settings</h1>
  <div class="card"><b>Supplier (WhatsApp)</b><label>Supplier name</label><input id="sn" value="${esc(sp.name)}">
  <div class="row"><div style="flex:0 0 90px"><label>Country</label><input id="sc" value="+${esc(sp.cc)}"></div><div><label>WhatsApp number</label><input id="sph" type="tel" placeholder="3001234567" value="${esc(sp.phone)}"></div></div><button onclick="saveSup()">Save Supplier</button></div>
  <div class="card"><b>Backup &amp; data</b><br><button onclick="backup()">Backup (JSON)</button><button class="s" onclick="restoreUI()">Restore</button><button class="s" onclick="ask('Load sample data? This replaces ALL current data.',sample)">Load sample data</button><button class="s" onclick="selfTest()">Run self-test</button><button class="d" onclick="ask('Erase ALL data permanently? Make a backup first.',()=>{S=fresh();save();render()})">Erase all data</button><div id="tr"></div></div>
+ ${bkCard()}
  <div class="card"><b>📲 Add to Home Screen</b><p style="color:var(--mu);font-size:14px">Open this page in Chrome on your phone, tap the ⋮ menu, then <b>Add to Home screen</b> (or <b>Install app</b>). It then opens like an app from your phone’s home screen.</p>${window._ip?'<button onclick="installApp()">📲 Install app</button>':''}</div>
  <div class="card"><b>📱 Share App (QR Code)</b><p style="color:var(--mu);font-size:14px">Scan to open JUGNU Mineral Water. Download, print or share the QR code.</p><label>Application link used in the QR code</label><input id="aurl" value="${esc(appUrl())}" placeholder="https://jugnutechpk.github.io/jugnu-mineralwater/"><button class="s" onclick="saveAppUrl()">Save Link</button><button id="qrbtn" onclick="showQR()">Show QR Code</button></div>`}
 function savePrice(){const p=intv($('np').value,1,100000),e=$('ne').value;if(p===null||!e)return toast('Enter a valid price and date');setPrice(p,e);save();render();toast('Price saved')}
@@ -1215,5 +1250,5 @@ function selfTest(){const bak=S,res=[],t=(n,ok)=>res.push(`<div class="${ok?'ok'
 if(window.addEventListener)window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();window._ip=e;if(view=='set')render()});
 async function installApp(){const e=window._ip;if(!e)return;e.prompt();try{await e.userChoice}catch(x){}window._ip=null;render()}
 if('serviceWorker' in navigator&&/^https?:/.test(location.protocol))window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
-load().then(render);
+load().then(()=>{render();bkInit()});
 </script></body></html>

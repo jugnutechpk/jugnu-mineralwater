@@ -1199,15 +1199,25 @@ async function bkGesture(e){if(e&&e.isTrusted===false)return;const b=bk();if(b.m
 async function bkInit(){const b=bk();if(b.mode=='folder'){const h=await dirReady(false);b.status=h?'ok':((await hget())?'perm':'nohandle');if(h&&hasData()&&(!b.last||b.last.slice(0,10)!==today()))await backupNow(false);if(view=='set')render()}}
 if(document.addEventListener)document.addEventListener('click',bkGesture,true);
 function bkCard(){const b=bk(),m=b.mode,dir=canDir(),last=b.last?new Date(b.last).toLocaleString('en-GB'):'-',st=String(b.status||'');let body='';
- if(dir){
-  if(m=='folder'){const w=st=='perm'?'<p style="color:#ffc928;font-weight:600">⚠ Tap anywhere and press Allow when the browser asks, to keep auto backup working.</p>':st=='nohandle'?'<p style="color:#ffc928;font-weight:600">⚠ Please choose the backup folder again.</p>':st.indexOf('err')==0?'<p class="bad">Backup problem ('+esc(st)+'). Choose the folder again.</p>':'<p class="ok">✅ Auto backup is ON</p>';
-   body=w+'<p>Folder: <b>'+esc(b.folder||'')+'</b><br>Last backup: <b>'+last+'</b></p><small style="color:var(--mu)">A backup is saved automatically every time you change data: one file Jugnu-Water-Backup-latest.json plus one file per day (last 30 days kept). The browser shows only the folder name, never the full path.</small><div class="row" style="margin-top:10px"><button onclick="manualBackup()">💾 Backup now</button><button class="s" onclick="pickFolder()">📁 Change folder</button></div><button class="d" onclick="stopBackup()">Turn off</button>'}
-  else body='<p style="color:var(--mu);font-size:14px">Choose a folder once. The app then saves your backups there automatically.</p><button onclick="pickFolder()">📁 Choose backup folder</button>'}
- else{
-  if(m=='download')body='<p class="ok">✅ Daily auto backup is ON</p><p>Saves one file a day into your Downloads. Last backup: <b>'+last+'</b></p><div class="row"><button onclick="manualBackup()">💾 Backup now</button><button class="d" onclick="stopBackup()">Turn off</button></div>';
-  else body='<p style="color:var(--mu);font-size:14px">This browser cannot save into a folder you choose. Instead the app can save one backup file a day into your Downloads.</p><button onclick="startDownloadMode()">▶ Turn on daily auto backup</button>';
-  body+='<small style="display:block;color:var(--mu);margin-top:8px">To choose that folder: Chrome menu (3 dots) → Settings → Downloads → Download location.</small>'}
+ if(m=='folder'&&dir){const w=st=='perm'?'<p style="color:#ffc928;font-weight:600">⚠ Tap anywhere and press Allow when the browser asks.</p>':st=='nohandle'?'<p style="color:#ffc928;font-weight:600">⚠ Please choose the backup folder again.</p>':st.indexOf('err')==0?'<p class="bad">Backup problem ('+esc(st)+').</p>':'<p class="ok">✅ Auto backup is ON</p>';
+  body=w+'<p>Folder: <b>'+esc(b.folder||'')+'</b><br>Last backup: <b>'+last+'</b></p>'}
+ else if(m=='download')body='<p class="ok">✅ Daily auto backup is ON</p><p>Last backup: <b>'+last+'</b></p>';
+ else body='<p style="color:var(--mu)">Auto backup is OFF</p>';
  return '<div class="card"><b>🗂 Auto Backup</b>'+body+'</div>'}
+function bkBtn(){const m=bk().mode;if(canDir())return '<button class="s" style="white-space:nowrap" onclick="pickFolder()">📁 '+(m=='folder'?'Change folder':'Choose backup folder')+'</button>';return m=='download'?'':'<button class="s" style="white-space:nowrap" onclick="startDownloadMode()">▶ Turn on daily auto backup</button>'}
+
+/* ---- erase all data (two confirmations) ---- */
+function eraseStep1(){ask('Erase ALL data permanently? Make a backup first.',eraseStep2)}
+function eraseStep2(){modal('<b style="color:var(--bad);font-size:18px">Final confirmation</b><p>This will permanently delete ALL supplies, payments, orders and settings on this device. It cannot be undone.</p><p>Type <b>ERASE</b> below to continue.</p><input id="ecf" autocomplete="off" autocapitalize="characters" placeholder="ERASE" oninput="eraseChk()"><button id="ebtn" class="d" disabled style="opacity:.5" onclick="eraseGo()">Erase everything</button><button class="s" onclick="closeM()">Cancel</button>')}
+function eraseChk(){const ok=$('ecf').value.trim().toUpperCase()==='ERASE',b=$('ebtn');b.disabled=!ok;b.style.opacity=ok?1:.5}
+async function eraseGo(){if(window._erasing)return;if($('ecf').value.trim().toUpperCase()!=='ERASE')return;window._erasing=true;
+ try{const old=S.backup,ts=today()+'-'+new Date().toTimeString().slice(0,8).split(':').join('');
+  if(old&&old.mode=='folder'){let ok=false;try{const h=await dirReady(true);if(h){const f=await h.getFileHandle('Jugnu-Water-Backup-before-erase-'+ts+'.json',{create:true}),w=await f.createWritable();await w.write(bkTxt());await w.close();ok=true}}catch(e){}
+   if(!ok){closeM();toast('Safety copy could not be saved to the backup folder - nothing was erased');return}}
+  else if(old&&old.mode=='download'){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([bkTxt()],{type:'application/json'}));a.download='Jugnu-Water-Backup-before-erase-'+ts+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000)}
+  const keep=old&&old.mode!='off'?{mode:old.mode,folder:old.folder,last:old.last,lastDay:old.lastDay,status:old.status}:null;
+  S=fresh();if(keep)S.backup=keep;await save();closeM();render();toast('All data erased')}
+ finally{window._erasing=false}}
 
 /* ---- settings ---- */
 function vSet(){const sp=S.supplier;return `<h1>Settings</h1>
@@ -1217,9 +1227,8 @@ function vSet(){const sp=S.supplier;return `<h1>Settings</h1>
  <h2>Price history</h2>${[...S.prices].sort((a,b)=>b.effective.localeCompare(a.effective)).map(p=>`<div class="item"><span>${fmtD(p.effective)} → <b>${rs(p.price)}</b></span></div>`).join('')}</div>
  <div class="card"><b>Supplier (WhatsApp)</b><label>Supplier name</label><input id="sn" value="${esc(sp.name)}">
  <div class="row"><div style="flex:0 0 90px"><label>Country</label><input id="sc" value="+${esc(sp.cc)}"></div><div><label>WhatsApp number</label><input id="sph" type="tel" placeholder="3001234567" value="${esc(sp.phone)}"></div></div><button onclick="saveSup()">Save Supplier</button></div>
- <div class="card"><b>Backup &amp; data</b><br><button onclick="backup()">Backup (JSON)</button><button class="s" onclick="restoreUI()">Restore</button><button class="s" onclick="ask('Load sample data? This replaces ALL current data.',sample)">Load sample data</button><button class="s" onclick="selfTest()">Run self-test</button><button class="d" onclick="ask('Erase ALL data permanently? Make a backup first.',()=>{S=fresh();save();render()})">Erase all data</button><div id="tr"></div></div>
+ <div class="card"><b>Backup &amp; data</b><br><button onclick="backup()">Backup (JSON)</button><button class="s" onclick="restoreUI()">Restore</button>${bkBtn()}<button class="d" onclick="eraseStep1()">Erase all data</button><div id="tr"></div></div>
  ${bkCard()}
- <div class="card"><b>📲 Add to Home Screen</b><p style="color:var(--mu);font-size:14px">Open this page in Chrome on your phone, tap the ⋮ menu, then <b>Add to Home screen</b> (or <b>Install app</b>). It then opens like an app from your phone’s home screen.</p>${window._ip?'<button onclick="installApp()">📲 Install app</button>':''}</div>
  <div class="card"><b>📱 Share App (QR Code)</b><p style="color:var(--mu);font-size:14px">Scan to open JUGNU Mineral Water. Download, print or share the QR code.</p><label>Application link used in the QR code</label><input id="aurl" value="${esc(appUrl())}" placeholder="https://jugnutechpk.github.io/jugnu-mineralwater/"><button class="s" onclick="saveAppUrl()">Save Link</button><button id="qrbtn" onclick="showQR()">Show QR Code</button></div>`}
 function savePrice(){const p=intv($('np').value,1,100000),e=$('ne').value;if(p===null||!e)return toast('Enter a valid price and date');setPrice(p,e);save();render();toast('Price saved')}
 function saveSup(){const ph=$('sph').value.replace(/\D/g,''),cc=$('sc').value.replace(/\D/g,'');if(ph&&ph.length<7)return toast('Number looks too short');if(!cc)return toast('Enter country code');S.supplier={name:$('sn').value.trim(),phone:ph,cc};save();toast('Supplier saved')}

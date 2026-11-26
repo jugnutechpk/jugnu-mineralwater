@@ -2,37 +2,37 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mineral Water Supply Management</title>
-<meta name="application-name" content="Water Supply"><meta name="apple-mobile-web-app-title" content="Water Supply"><meta name="theme-color" content="#0b1a33">
+<meta name="application-name" content="Water Supply"><meta name="apple-mobile-web-app-title" content="Water Supply"><meta name="theme-color" content="#243b50">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="icon" type="image/png" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="manifest" href="manifest.webmanifest">
 <style>
-:root{--bg:#0b1a33;--card:#12254a;--c2:#1a3262;--gold:#d4af37;--tx:#f3f1e8;--mu:#9fb0cf;--ok:#4cc38a;--warn:#f0a93b;--bad:#ef6b6b;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bg:#e5edf3;--card:#ffffff;--c2:#dce8f1;--gold:#527f9f;--tx:#263b4d;--mu:#657d90;--ok:#25845e;--warn:#b9781d;--bad:#c94f55;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding-bottom:84px}
 main{max-width:860px;margin:0 auto;padding:14px}
 h1{font-size:20px;margin:0 0 10px;color:var(--gold)}h2{font-size:17px;margin:18px 0 8px;color:var(--gold)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.card{background:var(--card);border:1px solid #223a6b;border-radius:14px;padding:14px;margin-bottom:10px}
+.card{background:var(--card);border:1px solid #c6d6e3;border-radius:14px;padding:14px;margin-bottom:10px}
 .stat small{color:var(--mu);display:block}.stat b{font-size:21px;color:var(--gold)}
 label{display:block;color:var(--mu);font-size:14px;margin:10px 0 4px}
-input,select,textarea{width:100%;padding:13px;border-radius:10px;border:1px solid #2c4a86;background:#0d1f40;color:var(--tx);font:inherit}
-button{padding:14px 18px;border:0;border-radius:12px;font:inherit;font-weight:600;background:#ffc928;color:#1a1405;cursor:pointer;margin:8px 8px 0 0}
-button.s{background:#2f6ee6;color:#fff}button.d{background:#ff4d4d;color:#fff}button.sm{padding:8px 12px;margin:0 6px 0 0;font-size:14px}
+input,select,textarea{width:100%;padding:13px;border-radius:10px;border:1px solid #b8ccdc;background:#f5f8fb;color:var(--tx);font:inherit}
+button{padding:14px 18px;border:0;border-radius:12px;font:inherit;font-weight:600;background:#527f9f;color:#ffffff;cursor:pointer;margin:8px 8px 0 0}
+button.s{background:#547f9f;color:#fff}button.d{background:#ff4d4d;color:#fff}button.sm{padding:8px 12px;margin:0 6px 0 0;font-size:14px}
 button.wa{background:#22e06b;color:#04230f;width:100%;font-size:14px;padding:12px 6px;margin:0}
 .row{display:flex;gap:10px}.row>*{flex:1}
-nav{position:fixed;left:0;right:0;bottom:0;background:#091428;border-top:1px solid #223a6b;display:flex;justify-content:center;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
+nav{position:fixed;left:0;right:0;bottom:0;background:#dce8f1;border-top:1px solid #c6d6e3;display:flex;justify-content:center;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
 nav button{flex:1;max-width:150px;background:none;color:var(--mu);margin:0;padding:8px 2px;font-size:11px;border-radius:10px}
 nav button.on{color:var(--gold);background:var(--card)}nav span{display:block;font-size:20px}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;text-align:left;border-bottom:1px solid #223a6b}th{color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;text-align:left;border-bottom:1px solid #c6d6e3}th{color:var(--gold)}
 .tw{overflow-x:auto}.r{text-align:right}
 .tag{padding:3px 10px;border-radius:99px;font-size:13px;font-weight:700;color:#06210f}.Paid{background:var(--ok)}.Partially{background:var(--warn)}.Unpaid{background:var(--bad)}.None{background:var(--mu)}
-.item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid #223a6b}.item small{color:var(--mu)}
+.item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid #c6d6e3}.item small{color:var(--mu)}
 #modal{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;z-index:9;padding:14px}
 #modal>div{background:var(--card);border-radius:14px;padding:16px;max-width:560px;width:100%;max-height:90vh;overflow:auto}
-#toast{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:var(--gold);color:#1a1405;padding:10px 18px;border-radius:99px;font-weight:600;display:none;z-index:10}
+#toast{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:var(--gold);color:#ffffff;padding:10px 18px;border-radius:99px;font-weight:600;display:none;z-index:10}
 .ok{color:var(--ok)}.bad{color:var(--bad)}
-#cr{position:fixed;left:0;right:0;bottom:0;height:34px;background:#fff3c4;color:#0b1a33;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;z-index:4;padding:0 14px env(safe-area-inset-bottom,0px)}.nb{display:none}nav{bottom:34px}body{padding-bottom:130px}
+#cr{position:fixed;left:0;right:0;bottom:0;height:34px;background:#fff3c4;color:#365873;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;z-index:4;padding:0 14px env(safe-area-inset-bottom,0px)}.nb{display:none}nav{bottom:34px}body{padding-bottom:130px}
 .nl #cr{height:64px;justify-content:flex-start;font-size:13px;line-height:1.25}.nl .nb{display:inline}.nl nav{bottom:64px}.nl body{padding-bottom:170px}
 @media print{body{background:#fff;color:#000}nav,#cr,.noprint,button{display:none!important}.card{background:#fff;border-color:#ccc}th,h1,h2{color:#000}td,th{border-color:#ccc}}
 #qrprint{display:none}
@@ -45,15 +45,60 @@ button.sm{box-shadow:0 2px 0 rgba(0,0,0,.38),0 4px 8px rgba(0,0,0,.25)}button.sm
 button .rp{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:rp .5s ease-out forwards;pointer-events:none}
 @keyframes rp{to{transform:scale(2.4);opacity:0}}
 nav{gap:5px;padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px))}
-nav button{background:#2f6ee6;color:#fff;border-radius:12px;padding:7px 2px 6px;overflow:hidden;box-shadow:0 3px 0 rgba(0,0,0,.45),0 5px 9px rgba(0,0,0,.30)}
+nav button{background:#547f9f;color:#fff;border-radius:12px;padding:7px 2px 6px;overflow:hidden;box-shadow:0 3px 0 rgba(0,0,0,.45),0 5px 9px rgba(0,0,0,.30)}
 nav button::before{display:block}
-nav button.on{background:#ffc928;color:#1a1405}
+nav button.on{background:#527f9f;color:#ffffff}
 nav button:active{transform:translateY(2px) scale(.96);box-shadow:0 1px 0 rgba(0,0,0,.45),inset 0 3px 7px rgba(0,0,0,.25);filter:saturate(1.8) brightness(.82)}
 .tile{display:inline-flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;min-height:58px;margin:0;padding:10px 8px;font-size:14px;line-height:1.2;text-align:left;border-radius:16px}
 .tile .ti{font-size:24px;line-height:1;flex:0 0 auto}.tile .tl{display:block}
 .tile .ti,.tile .tl{position:relative;z-index:1}
 .tile:active{filter:saturate(1.8)}.tile:active::before{mix-blend-mode:multiply;background:#939393}
 @media print{button{box-shadow:none!important}}
+
+/* JUGNU Smoke Blue theme refresh */
+body{background:var(--bg);color:var(--tx)}
+.card{background:var(--card);border-color:#cbd9e4;box-shadow:0 4px 14px rgba(55,86,111,.08)}
+h1,h2,th,.stat b{color:#527f9f}
+label,.stat small,.item small{color:#657d90}
+input,select,textarea{background:#f7fafc;color:#263b4d;border-color:#bfd0dd}
+input:focus,select:focus,textarea:focus{outline:2px solid #8eafc5;border-color:#527f9f}
+button{background:#527f9f;color:#fff;box-shadow:0 3px 0 #365873,0 6px 12px rgba(54,88,115,.16)}
+button.s{background:#dce8f1;color:#365873;box-shadow:0 3px 0 #b8cbd9,0 6px 12px rgba(54,88,115,.12)}
+button.d{background:#c94f55;color:#fff;box-shadow:0 3px 0 #96383e,0 6px 12px rgba(150,56,62,.14)}
+button.wa{background:#25845e;color:#fff}
+nav{background:#f4f8fb;border-top:1px solid #cbd9e4;box-shadow:0 -5px 18px rgba(54,88,115,.08)}
+nav button{background:#e2ecf3;color:#526e83;box-shadow:0 2px 0 #c1d2df,0 4px 8px rgba(54,88,115,.10)}
+nav button.on{background:#527f9f;color:#fff}
+.item{border-bottom-color:#dce6ed}
+th,td{border-bottom-color:#dce6ed}
+#modal{background:rgba(35,57,75,.42)}
+#modal>div{background:#fff;border:1px solid #cbd9e4;box-shadow:0 18px 55px rgba(35,57,75,.22)}
+#toast{background:#365873;color:#fff}
+#cr{background:#dce8f1;color:#365873}
+.tag{color:#fff}.Paid{background:#25845e}.Partially{background:#b9781d}.Unpaid{background:#c94f55}.None{background:#8096a8}
+@media print{body{background:#fff;color:#263b4d}.card{background:#fff}h1,h2,th{color:#365873}}
+
+
+/* JUGNU Smoke Blue – stronger contrast and dark navigation */
+:root{--tx:#101820;--mu:#263746;--gold:#365f7c}
+body{color:#101820}
+#app{color:#101820}
+#app h1{background:linear-gradient(135deg,#1c3042 0%,#304f68 100%);color:#fff!important;padding:16px 18px;margin:0 -14px 14px;border-radius:0 0 16px 16px;box-shadow:0 5px 14px rgba(13,31,47,.22);border-bottom:3px solid #789bb4}
+#app h2{color:#152330!important}
+#app p,#app b,#app strong,#app td,#app label,#app .item,#app .stat small{color:#101820}
+#app small{color:#263746}
+#app .stat b{color:#173b56}
+#app input,#app select,#app textarea{color:#101820}
+#app input::placeholder,#app textarea::placeholder{color:#596b79;opacity:1}
+#app th{color:#244b68}
+nav{background:linear-gradient(180deg,#263d51 0%,#142536 100%);border-top:1px solid #49647a;box-shadow:0 -7px 20px rgba(9,24,37,.28)}
+nav button{background:linear-gradient(180deg,#506b81 0%,#30495f 100%);color:#f1f5f8;border:1px solid rgba(255,255,255,.13);box-shadow:0 3px 0 #101e2a,0 5px 10px rgba(0,0,0,.28)}
+nav button.on{background:linear-gradient(180deg,#9bb9ce 0%,#668aa5 100%);color:#102334;border:1px solid #c1d5e3;box-shadow:0 3px 0 #38566d,0 5px 12px rgba(0,0,0,.25);font-weight:800}
+nav button span{color:inherit}
+#cr{background:#d2e0e9;color:#142c3e;border-top:1px solid #aabfce}
+#toast{background:#172d40;color:#fff}
+@media print{#app h1{background:#fff!important;color:#000!important;box-shadow:none;border-bottom:1px solid #aaa}}
+
 </style></head><body>
 <main id="app"></main>
 <nav id="nav"></nav><div id="cr"><span>Created by <br class="nb">Jugnu Technology</span></div><div id="modal"><div id="mbox"></div></div><div id="toast"></div><div id="qrprint"></div>
@@ -970,12 +1015,12 @@ const fmtD=d=>d?d.split('-').reverse().join('-'):'—';
 const rs=n=>'Rs. '+Number(n).toLocaleString('en-US');
 const mLabel=m=>MN[+m.slice(5)-1]+' '+m.slice(0,4);
 const sum=(a,k)=>a.reduce((t,x)=>t+x[k],0);
-const fresh=()=>({seq:2,deliveries:[],payments:[],prices:[{id:1,effective:today(),price:100}],supplier:{name:'',phone:'',cc:'92'}});
+const fresh=()=>({seq:2,orderSeq:1,deliveries:[],payments:[],orders:[],suppliedOrders:[],prices:[{id:1,effective:today(),price:100}],supplier:{name:'',phone:'',cc:'92'}});
 let S=fresh(),view='dash',selM=mk(today()),edit=null,rep={type:'daily',m:mk(today())};
 
 /* ---- storage (IndexedDB) ---- */
 const idb=()=>new Promise((res,rej)=>{const r=indexedDB.open('HomeWaterRecord',1);r.onupgradeneeded=()=>r.result.createObjectStore('kv');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});
-async function load(){try{const d=await idb();const v=await new Promise((res,rej)=>{const q=d.transaction('kv').objectStore('kv').get('state');q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)});if(v)S=JSON.parse(v);}catch(e){toast('Storage unavailable – data will not be kept')}}
+async function load(){try{const d=await idb();const v=await new Promise((res,rej)=>{const q=d.transaction('kv').objectStore('kv').get('state');q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)});if(v){S=JSON.parse(v);S.orders=Array.isArray(S.orders)?S.orders:[];S.suppliedOrders=Array.isArray(S.suppliedOrders)?S.suppliedOrders:[];const nums=[...S.orders,...S.suppliedOrders].map(x=>{const m=String(x.orderNo||'').match(/(\d+)$/);return m?Number(m[1]):0});S.orderSeq=Math.max(Number(S.orderSeq)||1,...nums.map(n=>n+1));}}catch(e){toast('Storage unavailable – data will not be kept')}}
 async function save(nb){try{const d=await idb();d.transaction('kv','readwrite').objectStore('kv').put(JSON.stringify(S),'state')}catch(e){toast('Could not save data!')}if(!nb)autoBackupSoon()}
 function toast(t){const e=$('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2200)}
 function modal(h){$('mbox').innerHTML=h;$('modal').style.display='flex'}
@@ -983,18 +1028,18 @@ function closeM(){$('modal').style.display='none'}
 function ask(msg,fn){window._fn=fn;modal(`<p>${esc(msg)}</p><button class="d" onclick="closeM();window._fn()">Yes, continue</button><button class="s" onclick="closeM()">Cancel</button>`)}
 
 /* ---- core logic ---- */
-function priceOn(d){const p=S.prices.filter(x=>x.effective<=d).sort((a,b)=>b.effective.localeCompare(a.effective)||b.id-a.id)[0]||[...S.prices].sort((a,b)=>a.effective.localeCompare(b.effective))[0];return p?p.price:0}
+function priceOn(d){const p=S.prices.filter(x=>x.effective<=d).sort((a,b)=>b.effective.localeCompare(a.effective)||b.id-a.id)[0];return p?Number(p.price):0}
 function addDel(o){const d={id:S.seq++,date:o.date,qty:o.qty,price:o.price,amount:o.qty*o.price,remarks:o.remarks||''};S.deliveries.push(d);return d}
 function addPay(o){const p={id:S.seq++,date:o.date,amount:o.amount,note:o.note||''};S.payments.push(p);return p}
 function setPrice(price,eff){S.prices.push({id:S.seq++,effective:eff,price})}
 function stats(m){const ds=S.deliveries.filter(d=>mk(d.date)==m),ps=S.payments.filter(p=>mk(p.date)==m);const bottles=sum(ds,'qty'),bill=sum(ds,'amount'),paid=sum(ps,'amount');
- const status=!bill&&!paid?'No supplies':paid>=bill?'Paid':paid>0?'Partially Paid':'Unpaid';return{bottles,bill,paid,bal:bill-paid,status}}
+ const bal=Math.max(0,bill-paid),excess=Math.max(0,paid-bill),status=!bill?'No supplies':paid>=bill?'Paid':paid>0?'Partially Paid':'Unpaid';return{bottles,bill,paid,bal,excess,status}}
 const allMonths=()=>[...new Set([...S.deliveries.map(d=>mk(d.date)),...S.payments.map(p=>mk(p.date))])].sort().reverse();
 const lastDel=()=>[...S.deliveries].sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id)[0];
 const tag=s=>`<span class="tag ${s.split(' ')[0]=='No'?'None':s.split(' ')[0]}">${s}</span>`;
 function waMsg(){const l=lastDel();if(!l)return null;const s=stats(mk(l.date));
  const R=(a,w)=>a.map(([k,v])=>k.padEnd(w)+': '+v).join('\n'),B='```',nm=S.orderer?'🔴 *Of: '+S.orderer+'*\n':'',st=s.status=='Paid'?'✅ Paid':s.status=='Partially Paid'?'🟡 Partially Paid':s.status=='Unpaid'?'🔴 Unpaid':'⚪ '+s.status;
- return `Assalam-o-Alaikum 🌙\n\n💧 *Home Water Supply Update*\n\n🚚 *Supply Details*\n${nm}${B}\n${R([['Date',fmtD(l.date)],['Bottles Received',l.qty],['Rate per Bottle',rs(l.price)],["Today's Amount",rs(l.amount)]],17)}\n${B}\n\n📊 *Monthly Summary*\n${B}\n${R([['Total Bottles',s.bottles],['Monthly Bill',rs(s.bill)],['Paid',rs(s.paid)],['Balance',rs(s.bal)]],13)}\n${B}\n\n💰 *Status:* ${st}\n\n🙏 Thank you.`}
+ return `Assalam-o-Alaikum 🌙\n\n💧 *Home Water Supply Update*\n\n🚚 *Supply Details*\n${nm}${B}\n${R([['Date',fmtD(l.date)],['Bottles Received',l.qty],['Rate per Bottle',rs(l.price)],["Today's Amount",rs(l.amount)]],17)}\n${B}\n\n📊 *Monthly Summary*\n${B}\n${R([['Total Bottles',s.bottles],['Monthly Bill',rs(s.bill)],['Paid',rs(s.paid)],['Balance',rs(s.bal)],['Excess (not carried)',rs(s.excess)]],13)}\n${B}\n\n💰 *Status:* ${st}\n\n🙏 Thank you.`}
 function waNumber(){let n=(S.supplier.phone||'').replace(/\D/g,'').replace(/^0+/,'');const cc=(S.supplier.cc||'92').replace(/\D/g,'');if(n.startsWith(cc)&&n.length>10)n=n.slice(cc.length);return cc+n}
 function sendWA(){const m=waMsg();if(!m)return toast('Add a supply first');if(!S.supplier.phone)return toast('Set supplier WhatsApp number in Settings');
  const url='https://wa.me/'+waNumber()+'?text='+encodeURIComponent(m);const w=window.open(url,'_blank');if(!w)modal(`<p>Tap the link to open WhatsApp:</p><p><a style="color:var(--gold)" href="${url}" target="_blank" rel="noopener">Open WhatsApp</a></p><button class="s" onclick="closeM()">Close</button>`)}
@@ -1032,7 +1077,7 @@ function vDel(){const e=edit?S.deliveries.find(d=>d.id==edit):null;const list=S.
  <button onclick="saveDel()">${e?'Update Record':'Save Supply'}</button>${e?'<button class="s" onclick="go(\'del\')">Cancel</button>':''}</div>
  <div class="row" style="margin:0 0 6px"><button class="wa" onclick="sendWA()">📲 Text on WhatsApp</button><button class="wa" style="background:#ff5533;color:#fff" onclick="imgMenu()">🖼 Image on WhatsApp</button></div>
  <h2>Records</h2><input type="month" value="${selM}" onchange="selM=this.value||selM;render()">
- <div class="card">${list.map(d=>`<div class="item"><div><b>${fmtD(d.date)}</b> · ${d.qty} × ${rs(d.price)} = <b>${rs(d.amount)}</b><br><small>${esc(d.remarks)}</small></div><div><button class="sm s" onclick="edit=${d.id};render();scrollTo(0,0)">Edit</button><button class="sm d" onclick="delDel(${d.id})">Delete</button></div></div>`).join('')||'<small>No supplies in this month.</small>'}</div>`}
+ <div class="card">${list.map(d=>`<div class="item"><div><b>${fmtD(d.date)}</b> · ${d.qty} × ${rs(d.price)} = <b>${rs(d.amount)}</b><br><small>${esc(d.remarks)}</small></div></div>`).join('')||'<small>No supplies in this month.</small>'}</div>`}
 function dateCh(){$('dp').value=priceOn($('dd').value);calc()}
 function calc(){const q=Number($('dq').value),p=Number($('dp').value);$('dt').value=q>0&&p>0?rs(q*p):''}
 function saveDel(){const date=$('dd').value,qty=intv($('dq').value,1,999),price=intv($('dp').value,1,100000);
@@ -1044,8 +1089,8 @@ function delDel(id){ask('Delete this supply record permanently?',()=>{S.deliveri
 function vPay(){const s=stats(selM),ps=S.payments.filter(p=>mk(p.date)==selM).sort((a,b)=>b.date.localeCompare(a.date));
  return `<h1>Payments</h1><input type="month" value="${selM}" onchange="selM=this.value||selM;render()">
  <div class="grid" style="margin-top:10px"><div class="card stat"><small>Bottles</small><b>${s.bottles}</b></div><div class="card stat"><small>Monthly bill</small><b>${rs(s.bill)}</b></div>
- <div class="card stat"><small>Total paid</small><b>${rs(s.paid)}</b></div><div class="card stat"><small>Remaining</small><b>${rs(s.bal)}</b></div></div>
- <p>${mLabel(selM)}: ${tag(s.status)}</p>
+ <div class="card stat"><small>Total paid</small><b>${rs(s.paid)}</b></div><div class="card stat"><small>Remaining</small><b>${rs(s.bal)}</b></div><div class="card stat"><small>Excess this month</small><b>${rs(s.excess)}</b></div></div>
+ <p>${mLabel(selM)}: ${tag(s.status)}</p><p style="color:var(--mu);font-size:13px">Payments are counted only in their own month. Any excess is not carried forward.</p>
  <div class="card"><b>Record Payment</b><div class="row"><div><label>Date</label><input type="date" id="pd" value="${selM==mk(today())?today():selM+'-01'}"></div><div><label>Amount (Rs.)</label><input type="number" id="pa" min="1" step="1" inputmode="numeric"></div></div>
  <label>Note (optional)</label><input id="pn" maxlength="120"><button onclick="savePay()">Save Payment</button></div>
  <div class="card">${ps.map(p=>`<div class="item"><div><b>${fmtD(p.date)}</b> · ${rs(p.amount)}<br><small>${esc(p.note)}</small></div><button class="sm d" onclick="delPay(${p.id})">Delete</button></div>`).join('')||'<small>No payments this month.</small>'}</div>
@@ -1059,7 +1104,7 @@ function repData(){const m=rep.m||mk(today()),y=m.slice(0,4);let h,r,t;
  if(rep.type=='daily'){t='Daily Supplies – '+mLabel(m);h=['Date','Bottles','Price','Amount','Remarks'];r=S.deliveries.filter(d=>mk(d.date)==m).sort((a,b)=>a.date.localeCompare(b.date)).map(d=>[fmtD(d.date),d.qty,rs(d.price),rs(d.amount),d.remarks]);const s=stats(m);if(r.length)r.push(['TOTAL',s.bottles,'',rs(s.bill),''])}
  else if(rep.type=='cons'||rep.type=='exp'){const c=rep.type=='cons';t=(c?'Monthly Bottle Consumption – ':'Monthly Expenditure – ')+y;h=['Month',c?'Bottles':'Amount'];r=MN.map((n,i)=>{const s=stats(y+'-'+pad(i+1));return [n,c?s.bottles:rs(s.bill)]});const a=MN.map((n,i)=>stats(y+'-'+pad(i+1)));r.push(['TOTAL',c?sum(a,'bottles'):rs(sum(a,'bill'))])}
  else if(rep.type=='pay'){t='Payment History – '+mLabel(m);h=['Date','Amount','Note'];r=S.payments.filter(p=>mk(p.date)==m).sort((a,b)=>a.date.localeCompare(b.date)).map(p=>[fmtD(p.date),rs(p.amount),p.note])}
- else if(rep.type=='out'){t='Outstanding Balances – '+y;h=['Month','Bill','Paid','Balance','Status'];r=allMonths().filter(x=>x.startsWith(y)).reverse().map(x=>{const s=stats(x);return [mLabel(x),rs(s.bill),rs(s.paid),rs(s.bal),s.status]})}
+ else if(rep.type=='out'){t='Outstanding Balances – '+y;h=['Month','Bill','Paid','Balance','Excess','Status'];r=allMonths().filter(x=>x.startsWith(y)).reverse().map(x=>{const s=stats(x);return [mLabel(x),rs(s.bill),rs(s.paid),rs(s.bal),rs(s.excess),s.status]})}
  else{t='Supplier Price History';h=['Effective date','Price per bottle'];r=[...S.prices].sort((a,b)=>b.effective.localeCompare(a.effective)).map(p=>[fmtD(p.effective),rs(p.price)])}
  return{t,h,r}}
 function vRep(){const d=repData();return `<h1>Reports</h1><div class="noprint"><select onchange="rep.type=this.value;render()">${[['daily','Daily bottle supplies'],['cons','Monthly bottle consumption'],['exp','Monthly expenditure'],['pay','Payment history'],['out','Outstanding balances'],['price','Supplier price history']].map(([k,t])=>`<option value="${k}" ${rep.type==k?'selected':''}>${t}</option>`).join('')}</select>
@@ -1071,21 +1116,21 @@ function cp(){const t=$('tx');t.select();try{navigator.clipboard.writeText(windo
 function csv(){const d=repData();const q=v=>'"'+String(v).replace(/"/g,'""')+'"';textModal('CSV – '+d.t,[d.h,...d.r].map(r=>r.map(q).join(',')).join('\n'),'report-'+rep.type+'.csv','text/csv')}
 
 /* ---- colourful PNG image update ---- */
-function mkImg(){const l=lastDel(),mo=mk(l.date),s=stats(mo),W=1080,D=S.orderer?70:0,H=1500+D,NV='#0b1a33',GD='#d4af37',cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+function mkImg(){const l=lastDel(),mo=mk(l.date),s=stats(mo),W=1080,D=S.orderer?70:0,H=1500+D,NV='#17354d',GD='#365873',cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
  const rr=(x,y,w,h,r,f)=>{g.beginPath();if(g.roundRect)g.roundRect(x,y,w,h,r);else g.rect(x,y,w,h);g.fillStyle=f;g.fill()};
- const tx=(t,x,y,z,c,b,al)=>{g.font=(b?'700 ':'400 ')+z+'px "Segoe UI",Roboto,Arial,sans-serif';g.fillStyle=c;g.textAlign=al||'left';g.fillText(String(t),x,y)};
- const bg=g.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#0b1a33');bg.addColorStop(1,'#1b3d7a');g.fillStyle=bg;g.fillRect(0,0,W,H);
- g.fillStyle='#091428';g.fillRect(0,0,W,230);g.fillStyle=GD;g.fillRect(0,226,W,8);
- tx('💧 Home Water Supply Update',50,100,50,GD,1);tx('Assalam-o-Alaikum'+(S.supplier.name?' - '+S.supplier.name:''),50,155,32,'#ffffff');tx('Statement for '+mLabel(mo),50,200,28,'#9fb0cf');
- rr(40,270,1000,380+D,28,'#ffffff');tx('🚚 SUPPLY DETAILS',70,325,34,NV,1);if(S.orderer){rr(60,345,960,54,14,'#fde8e8');tx('Of: '+S.orderer,85,383,34,'#d62828',1)}
- [['Date',fmtD(l.date)],['Bottles Received',l.qty+' x 19L'],['Rate per Bottle',rs(l.price)],["Today's Amount",rs(l.amount)]].forEach((r,i)=>{const y=395+D+i*62;rr(60,y-42,960,56,14,i%2?'#eef2fa':'#dde6f7');tx(r[0],85,y,32,NV);tx(r[1],995,y,32,NV,1,'right')});
- g.translate(0,D);[['Total Bottles',String(s.bottles),'#1e63c9','#ffffff',40,690],['Monthly Bill',rs(s.bill),GD,NV,550,690],['Payment Received',rs(s.paid),'#1f9d63','#ffffff',40,880],['Remaining Balance',rs(s.bal),'#e0533d','#ffffff',550,880]].forEach(b=>{rr(b[4],b[5],490,170,28,b[2]);tx(b[0],b[4]+30,b[5]+60,30,b[3]);tx(b[1],b[4]+30,b[5]+130,58,b[3],1)});
- const sc=s.status=='Paid'?'#1f9d63':s.status=='Partially Paid'?'#e69b1a':s.status=='Unpaid'?'#e0533d':'#7a8aa8';rr(40,1075,560,80,40,sc);tx('Status: '+s.status,70,1129,38,'#ffffff',1);
- rr(40,1180,1000,250,28,'#ffffff');tx('This month\u2019s supplies',70,1228,30,NV,1);
+ const tx=(t,x,y,z,c,b,al)=>{g.font=(b?'700 ':'500 ')+z+'px "Segoe UI",Roboto,Arial,sans-serif';g.fillStyle=c;g.textAlign=al||'left';g.fillText(String(t),x,y)};
+ const fit=(t,max,z)=>{t=String(t);while(z>20){g.font='700 '+z+'px "Segoe UI",Roboto,Arial,sans-serif';if(g.measureText(t).width<=max)break;z-=2}return z};
+ const bg=g.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#365873');bg.addColorStop(1,'#8daec5');g.fillStyle=bg;g.fillRect(0,0,W,H);
+ g.fillStyle='#17354d';g.fillRect(0,0,W,230);g.fillStyle='#d7b56d';g.fillRect(0,226,W,8);
+ tx('💧 Home Water Supply Update',50,100,50,'#ffffff',1);tx('Assalam-o-Alaikum'+(S.supplier.name?' - '+S.supplier.name:''),50,155,32,'#ffffff',1);tx('Statement for '+mLabel(mo),50,200,28,'#e7f0f7',1);
+ rr(40,270,1000,380+D,28,'#ffffff');tx('🚚 SUPPLY DETAILS',70,325,34,NV,1);if(S.orderer){rr(60,345,960,54,14,'#fde8e8');tx('Of: '+S.orderer,85,383,34,'#9f1239',1)}
+ [['Date',fmtD(l.date)],['Bottles Received',l.qty+' x 19L'],['Rate per Bottle',rs(l.price)],["Today's Amount",rs(l.amount)]].forEach((r,i)=>{const y=395+D+i*62;rr(60,y-42,960,56,14,i%2?'#f0f5f9':'#e3edf4');tx(r[0],85,y,32,NV,1);tx(r[1],995,y,fit(r[1],490,32),NV,1,'right')});
+ g.translate(0,D);[['Total Bottles',String(s.bottles),'#365873','#ffffff',40,690],['Monthly Bill',rs(s.bill),'#527f9f','#ffffff',550,690],['Payment Received',rs(s.paid),'#16784c','#ffffff',40,880],['Remaining Balance',rs(s.bal),'#b9382b','#ffffff',550,880]].forEach(b=>{rr(b[4],b[5],490,170,28,b[2]);tx(b[0],b[4]+30,b[5]+60,30,'#ffffff',1);tx(b[1],b[4]+30,b[5]+130,fit(b[1],420,58),'#ffffff',1)});
+ const sc=s.status=='Paid'?'#16784c':s.status=='Partially Paid'?'#a86600':s.status=='Unpaid'?'#b9382b':'#52677a';rr(40,1075,560,80,40,sc);tx('Status: '+s.status,70,1129,38,'#ffffff',1);
+ rr(40,1180,1000,250,28,'#ffffff');tx('This month’s supplies',70,1228,30,NV,1);
  const ds=S.deliveries.filter(d=>mk(d.date)==mo).sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id);
- ds.slice(0,4).forEach((d,i)=>{const y=1278+i*40;tx(fmtD(d.date),70,y,28,NV);tx(d.qty+' bottle(s)',420,y,28,NV);tx(rs(d.amount),1010,y,28,NV,1,'right')});if(ds.length>4)tx('+ '+(ds.length-4)+' more supplies',70,1428,24,'#7a8aa8');
- tx('Thank you 🙏  Mineral Water Supply Management',W/2,1475,26,GD,0,'center');return cv}
-
+ ds.slice(0,4).forEach((d,i)=>{const y=1278+i*40;tx(fmtD(d.date),70,y,28,NV,1);tx(d.qty+' bottle(s)',420,y,28,NV,1);tx(rs(d.amount),1010,y,fit(rs(d.amount),250,28),NV,1,'right')});if(ds.length>4)tx('+ '+(ds.length-4)+' more supplies',70,1428,24,'#52677a',1);
+ tx('Thank you 🙏  Mineral Water Supply Management',W/2,1475,26,'#17354d',1,'center');return cv}
 /* ---- image to WhatsApp menu ---- */
 async function imgMenu(){const l=lastDel();if(!l)return toast('Add a supply first');await showImg(mkImg(),'Water-Update-'+fmtD(l.date)+'.png')}
 function cst(t){const e=$('cst');if(e)e.textContent=t}
@@ -1093,44 +1138,51 @@ async function doShare(){const f=new File([window._b],window._n,{type:'image/png
 
 /* ---- order bottles page ---- */
 let editOrd=null;
-function vOrder(){const e=editOrd?(S.orders||[]).find(x=>x.id==editOrd):null,q=e?e.qty:(lastDel()?lastDel().qty:1),o=(S.orders||[]).slice(-8).reverse();
- return `<h1>🛒 Order Bottles</h1>${e?`<div class="card" style="border-color:var(--gold)"><b>✏️ Editing order of ${fmtD(e.date)}</b><button class="sm s" style="margin:0 0 0 10px" onclick="editOrd=null;render()">Cancel edit</button></div>`:''}<div class="card"><small style="color:var(--mu)">Current rate: ${rs(priceOn(today()))} per 19L bottle</small>
+function nextOrderNo(){return 'JUG-'+String(S.orderSeq||1).padStart(4,'0')}
+function vOrder(){const e=editOrd?(S.orders||[]).find(x=>x.id==editOrd):null,q=e?e.qty:(lastDel()?lastDel().qty:1),orderDate=e?e.date:today();
+ const orderNo=e?(e.orderNo||'JUG-'+String(e.id).padStart(4,'0')):nextOrderNo();
+ return `<h1>🛒 Order Bottles</h1>${e?`<div class="card" style="border-color:var(--gold)"><b>✏️ Editing ${esc(orderNo)}</b><button class="sm s" style="margin:0 0 0 10px" onclick="editOrd=null;render()">Cancel edit</button></div>`:''}<div class="card"><small style="color:var(--mu)">Current rate: ${rs(priceOn(today()))} per 19L bottle</small>
+ <div class="row"><div><label>Order number (automatic)</label><input id="ono" value="${esc(orderNo)}" readonly></div><div><label>Order date</label><input type="date" id="odate" value="${orderDate}"></div></div>
  <label>Your name (who is ordering)</label><input id="onm" maxlength="40" placeholder="e.g. Ahmed" value="${esc(e?e.name:(S.orderer||''))}">
  <label>Your mobile number</label><input id="omb" type="tel" inputmode="tel" maxlength="20" placeholder="e.g. 0300 1234567" value="${esc(e?(e.phone||''):(S.ordererPhone||''))}">
  <label>Number of 19L bottles</label><div class="row" style="align-items:center"><button class="s" style="margin:0;flex:0 0 64px" onclick="oq(-1)">−</button><input type="number" id="oq" min="1" max="999" step="1" inputmode="numeric" value="${q}" style="text-align:center;font-size:20px"><button class="s" style="margin:0;flex:0 0 64px" onclick="oq(1)">+</button></div>
  <div class="row"><div><label>Needed by (optional)</label><input type="date" id="od" value="${e?esc(e.need||''):''}"></div><div><label>Note (optional)</label><input id="on" maxlength="60" value="${e?esc(e.note||''):''}"></div></div>
- ${e?'<div class="row" style="margin-top:12px"><button class="wa" style="background:#ffc928;color:#1a1405" onclick="saveOrderEdit()">💾 Save Changes</button></div>':''}
+ ${e?'<div class="row" style="margin-top:12px"><button class="wa" style="background:#527f9f;color:#ffffff" onclick="saveOrderEdit()">💾 Save Changes</button></div>':''}
  <div class="row" style="margin-top:12px"><button class="wa" onclick="sendOrder()">📲 Text on WhatsApp</button><button class="wa" style="background:#ff5533;color:#fff" onclick="orderImg()">🖼 Image on WhatsApp</button></div></div>
- <h2>Recent orders</h2><div class="card" id="olist">${ordList()}</div>`}
-function ordList(){const o=(S.orders||[]).slice(-8).reverse();return o.map(x=>`<div class="item"><div><b>${fmtD(x.date)}</b> · ${x.qty} bottles<br><small>${esc(x.name||'')}${x.phone?' · '+esc(x.phone):''}${x.note?' · '+esc(x.note):''}</small></div><div><button class="sm s" onclick="editOrder(${x.id})">Edit</button><button class="sm d" onclick="delOrder(${x.id})">Delete</button></div></div>`).join('')||'<small>No orders yet.</small>'}
-function refreshOrders(){const e=$('olist');if(e)e.innerHTML=ordList()}
+ <h2>Pending orders</h2><div class="card" id="olist">${ordList()}</div>
+ <h2>Supplied orders</h2><div class="card" id="slist">${suppliedList()}</div>`}
+function ordList(){const o=(S.orders||[]).slice().reverse();return o.map(x=>`<div class="item"><div><b>${esc(x.orderNo||('JUG-'+String(x.id).padStart(4,'0')))}</b> · ${fmtD(x.date)}<br><b>${x.qty} bottles</b> · <small>${esc(x.name||'')}${x.phone?' · '+esc(x.phone):''}${x.note?' · '+esc(x.note):''}</small></div><div><button class="sm" style="background:#27845e;color:#fff" onclick="markOrderSupplied(${x.id})">✓ Supplied</button><button class="sm s" onclick="editOrder(${x.id})">Edit</button></div></div>`).join('')||'<small>No pending orders.</small>'}
+function suppliedList(){const o=(S.suppliedOrders||[]).slice().reverse().slice(0,12);return o.map(x=>`<div class="item"><div><b>${esc(x.orderNo||('JUG-'+String(x.id).padStart(4,'0')))}</b> · ${fmtD(x.date)}<br>${x.qty} bottles · <span class="tag Paid">Supplied</span><br><small>Supplied on ${fmtD(x.suppliedDate||x.date)}${x.name?' · '+esc(x.name):''}</small></div></div>`).join('')||'<small>No supplied orders yet.</small>'}
+function refreshOrders(){const e=$('olist');if(e)e.innerHTML=ordList();const a=$('slist');if(a)a.innerHTML=suppliedList()}
 function delOrder(id){ask('Delete this order record permanently?',()=>{S.orders=S.orders.filter(x=>x.id!=id);if(editOrd==id)editOrd=null;save();render()})}
 function editOrder(id){editOrd=id;render();scrollTo(0,0)}
+function markOrderSupplied(id){const o=(S.orders||[]).find(x=>x.id==id);if(!o)return;ask('Mark '+(o.orderNo||'this order')+' as supplied? A matching supply record will be added automatically.',()=>{const d=addDel({date:today(),qty:o.qty,price:priceOn(today()),remarks:'Supplied against '+(o.orderNo||'order')});S.orders=S.orders.filter(x=>x.id!=id);S.suppliedOrders=S.suppliedOrders||[];S.suppliedOrders.push({...o,status:'Supplied',suppliedDate:today(),deliveryId:d.id});selM=mk(today());save();render();toast('Order marked supplied and added to Supplies')})}
 function oq(d){const e=$('oq'),v=Number(e.value)||0;e.value=Math.max(1,Math.min(999,v+d))}
-function orderMsg(q,need,note,name,phone,upd){const NL=String.fromCharCode(10),B='```',R=(a,w)=>a.map(([k,v])=>k.padEnd(w)+': '+v).join(NL),p=priceOn(today()),rows=[['Bottles Required',q+' x 19L'],['Order Date',fmtD(today())],['Current Rate',rs(p)],['Estimated Amount',rs(q*p)]];if(need)rows.splice(2,0,['Needed By',fmtD(need)]);if(phone)rows.unshift(['Mobile',phone]);if(name)rows.unshift(['Ordered By',name]);
+function orderMsg(q,need,note,name,phone,upd,orderDate,orderNo){const NL=String.fromCharCode(10),B='```',R=(a,w)=>a.map(([k,v])=>k.padEnd(w)+': '+v).join(NL),p=priceOn(today()),rows=[['Order No.',orderNo||''],['Bottles Required',q+' x 19L'],['Order Date',fmtD(orderDate||today())],['Current Rate',rs(p)],['Estimated Amount',rs(q*p)]];if(need)rows.splice(2,0,['Needed By',fmtD(need)]);if(phone)rows.unshift(['Mobile',phone]);if(name)rows.unshift(['Ordered By',name]);
  return ['Assalam-o-Alaikum 🌙','',upd?'✏️ *Updated Bottle Order*':'🛒 *New Bottle Order*','',B,R(rows,17),B].concat(note?['','📝 '+note]:[],['','Kindly deliver at your earliest convenience.','🙏 Thank you.']).join(NL)}
-function readOrder(nophone){const name=$('onm').value.trim(),ph=$('omb').value.trim(),q=intv($('oq').value,1,999);if(!name){toast('Enter your name');return null}if(ph&&!/^\+?[0-9 -]{7,18}$/.test(ph)){toast('Enter a valid mobile number');return null}if(q===null){toast('Enter bottles between 1 and 999');return null}if(!nophone&&!S.supplier.phone){toast('Set supplier WhatsApp number in Settings');return null}return{name,phone:ph,q,need:$('od').value,note:$('on').value.trim(),upd:!!editOrd}}
-function logOrder(o){S.orderer=o.name;S.ordererPhone=o.phone;const L=(S.orders=S.orders||[]),e=editOrd&&L.find(x=>x.id==editOrd);if(e)Object.assign(e,{qty:o.q,need:o.need,note:o.note,name:o.name,phone:o.phone,edited:today()});else if(!L.some(x=>x.date==today()&&x.name==o.name&&(x.phone||'')==o.phone&&x.qty==o.q&&(x.need||'')==o.need&&(x.note||'')==o.note))L.push({id:S.seq++,date:today(),qty:o.q,need:o.need,note:o.note,name:o.name,phone:o.phone});editOrd=null;save()}
+function readOrder(nophone){const name=$('onm').value.trim(),ph=$('omb').value.trim(),q=intv($('oq').value,1,999),date=$('odate').value,orderNo=$('ono').value;if(!date){toast('Select order date');return null}if(!name){toast('Enter your name');return null}if(ph&&!/^\+?[0-9 -]{7,18}$/.test(ph)){toast('Enter a valid mobile number');return null}if(q===null){toast('Enter bottles between 1 and 999');return null}if(!nophone&&!S.supplier.phone){toast('Set supplier WhatsApp number in Settings');return null}return{name,phone:ph,q,date,orderNo,need:$('od').value,note:$('on').value.trim(),upd:!!editOrd}}
+function logOrder(o){S.orderer=o.name;S.ordererPhone=o.phone;const L=(S.orders=S.orders||[]),e=editOrd&&L.find(x=>x.id==editOrd);let saved;if(e){Object.assign(e,{orderNo:e.orderNo||('JUG-'+String(e.id).padStart(4,'0')),date:o.date,qty:o.q,need:o.need,note:o.note,name:o.name,phone:o.phone,edited:today()});saved=e}else{saved=L.find(x=>x.date==o.date&&x.name==o.name&&(x.phone||'')==o.phone&&x.qty==o.q&&(x.need||'')==o.need&&(x.note||'')==o.note);if(!saved){const id=S.seq++;saved={id,orderNo:o.orderNo||nextOrderNo(),date:o.date,qty:o.q,need:o.need,note:o.note,name:o.name,phone:o.phone};L.push(saved);S.orderSeq=(S.orderSeq||1)+1}}o.orderNo=saved.orderNo;editOrd=null;save();return saved}
 function saveOrderEdit(){const o=readOrder(true);if(!o)return;logOrder(o);render();toast('Order updated')}
-function sendOrder(){const o=readOrder();if(!o)return;logOrder(o);const url='https://wa.me/'+waNumber()+'?text='+encodeURIComponent(orderMsg(o.q,o.need,o.note,o.name,o.phone,o.upd)),w=window.open(url,'_blank');
+function sendOrder(){const o=readOrder();if(!o)return;logOrder(o);const url='https://wa.me/'+waNumber()+'?text='+encodeURIComponent(orderMsg(o.q,o.need,o.note,o.name,o.phone,o.upd,o.date,o.orderNo)),w=window.open(url,'_blank');
  if(!w)modal('<p>Tap the link to open WhatsApp:</p><p><a style="color:var(--gold)" href="'+url+'" target="_blank" rel="noopener">Open WhatsApp</a></p><button class="s" onclick="closeM()">Close</button>');o.upd?render():refreshOrders()}
-function mkOrderImg(o){const W=1080,H=1380,NV='#0b1a33',GD='#d4af37',p=priceOn(today()),cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+function mkOrderImg(o){const W=1080,H=1400,NV='#17354d',GD='#365873',p=priceOn(today()),cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
  const rr=(x,y,w,h,r,f)=>{g.beginPath();if(g.roundRect)g.roundRect(x,y,w,h,r);else g.rect(x,y,w,h);g.fillStyle=f;g.fill()};
- const tx=(t,x,y,z,c,b,al)=>{g.font=(b?'700 ':'400 ')+z+'px "Segoe UI",Roboto,Arial,sans-serif';g.fillStyle=c;g.textAlign=al||'left';g.fillText(String(t),x,y)};
- const bg=g.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#0b1a33');bg.addColorStop(1,'#1b3d7a');g.fillStyle=bg;g.fillRect(0,0,W,H);
- g.fillStyle='#091428';g.fillRect(0,0,W,230);g.fillStyle=GD;g.fillRect(0,226,W,8);
- tx(o.upd?'✏️ Updated Bottle Order':'🛒 New Bottle Order',50,100,56,GD,1);tx('Assalam-o-Alaikum'+(S.supplier.name?' - '+S.supplier.name:''),50,155,32,'#ffffff');tx('Order date: '+fmtD(today()),50,200,28,'#9fb0cf');
- rr(40,270,1000,250,32,'#1f9d63');tx('💧 BOTTLES REQUIRED',70,330,32,'#ffffff',1);tx(o.q,70,470,150,'#ffffff',1);tx('× 19L bottle'+(o.q>1?'s':''),W-70,470,48,'#d9ffe9',1,'right');
- rr(40,550,1000,330,28,'#ffffff');tx('📋 ORDER DETAILS',70,605,34,NV,1);
- [['Ordered By',o.name],o.phone?['Mobile',o.phone]:['Bottles',o.q+' × 19L'],['Order Date',fmtD(today())],['Needed By',o.need?fmtD(o.need):'As soon as possible']].forEach((r,i)=>{const y=675+i*62;rr(60,y-42,960,56,14,i%2?'#eef2fa':'#dde6f7');tx(r[0],85,y,32,NV);tx(r[1],995,y,32,NV,1,'right')});
- rr(40,910,490,170,28,'#1e63c9');tx('Rate per Bottle',70,970,30,'#ffffff');tx(rs(p),70,1040,58,'#ffffff',1);
- rr(550,910,490,170,28,GD);tx('Estimated Amount',580,970,30,NV);tx(rs(o.q*p),580,1040,58,NV,1);
- if(o.note){rr(40,1110,1000,90,28,'#fff3c4');tx('📝 '+o.note,70,1167,30,NV)}
- rr(40,1230,560,80,40,'#e0533d');tx((o.upd?'Status: Order Updated':'Status: Order Placed'),70,1284,36,'#ffffff',1);
- tx('Please deliver at your earliest convenience 🙏',W/2,1355,26,GD,0,'center');return cv}
-async function showImg(cv,n){window._b=await new Promise(r=>cv.toBlob(r,'image/png'));window._n=n;const u=cv.toDataURL('image/png'),AB='display:inline-block;padding:14px 18px;border-radius:12px;font-weight:600;margin:8px 8px 0 0;text-decoration:none;background:#d4af37;color:#1a1405;',wl='https://wa.me/'+(S.supplier.phone?waNumber():'');
+ const tx=(t,x,y,z,c,b,al)=>{g.font=(b?'700 ':'500 ')+z+'px "Segoe UI",Roboto,Arial,sans-serif';g.fillStyle=c;g.textAlign=al||'left';g.fillText(String(t),x,y)};
+ const fit=(t,max,z)=>{t=String(t);while(z>20){g.font='700 '+z+'px "Segoe UI",Roboto,Arial,sans-serif';if(g.measureText(t).width<=max)break;z-=2}return z};
+ const bg=g.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#365873');bg.addColorStop(1,'#8daec5');g.fillStyle=bg;g.fillRect(0,0,W,H);
+ g.fillStyle='#17354d';g.fillRect(0,0,W,230);g.fillStyle='#d7b56d';g.fillRect(0,226,W,8);
+ tx(o.upd?'✏️ Updated Bottle Order':'🛒 New Bottle Order',50,100,56,'#ffffff',1);tx('Assalam-o-Alaikum'+(S.supplier.name?' - '+S.supplier.name:''),50,155,32,'#ffffff',1);tx('Order No: '+(o.orderNo||'')+'   |   Order date: '+fmtD(o.date||today()),50,200,28,'#e7f0f7',1);
+ rr(40,270,1000,250,32,'#16784c');tx('💧 BOTTLES REQUIRED',70,330,32,'#ffffff',1);tx(o.q,70,470,150,'#ffffff',1);tx('× 19L bottle'+(o.q>1?'s':''),W-70,470,48,'#e7fff1',1,'right');
+ rr(40,550,1000,350,28,'#ffffff');tx('📋 ORDER DETAILS',70,605,34,NV,1);
+ [['Ordered By',o.name],o.phone?['Mobile',o.phone]:['Bottles',o.q+' × 19L'],['Order Number',o.orderNo||''],['Order Date',fmtD(o.date||today())],['Needed By',o.need?fmtD(o.need):'As soon as possible']].forEach((r,i)=>{const y=665+i*58;rr(60,y-39,960,52,14,i%2?'#f0f5f9':'#e3edf4');tx(r[0],85,y,30,NV,1);tx(r[1],995,y,fit(r[1],510,30),NV,1,'right')});
+ rr(40,930,490,170,28,'#365873');tx('Rate per Bottle',70,990,30,'#ffffff',1);tx(rs(p),70,1060,58,'#ffffff',1);
+ rr(550,930,490,170,28,'#527f9f');tx('Estimated Amount',580,990,30,'#ffffff',1);tx(rs(o.q*p),580,1060,fit(rs(o.q*p),420,58),'#ffffff',1);
+ if(o.note){rr(40,1120,1000,80,24,'#fff3c4');tx('📝 '+o.note,70,1172,fit('📝 '+o.note,920,30),'#17354d',1)}
+ rr(40,1230,650,80,40,'#b9382b');tx((o.upd?'Status: Order Updated':'Status: Order Placed'),70,1284,36,'#ffffff',1);
+ tx('Please deliver at your earliest convenience 🙏',W/2,1360,26,'#17354d',1,'center');return cv}
+async function showImg(cv,n){window._b=await new Promise(r=>cv.toBlob(r,'image/png'));window._n=n;const u=cv.toDataURL('image/png'),AB='display:inline-block;padding:14px 18px;border-radius:12px;font-weight:600;margin:8px 8px 0 0;text-decoration:none;background:#527f9f;color:#ffffff;',wl='https://wa.me/'+(S.supplier.phone?waNumber():'');
  modal('<b>Colourful image ready</b><div id="cpy" style="margin-top:8px;outline:none"><img id="pimg" alt="Image" src="'+u+'" style="width:100%;border-radius:10px"></div><div id="cst" style="margin:8px 0;color:var(--gold);font-weight:600"></div><button style="width:100%" onclick="doShare()">📤 Share menu</button><button class="s" style="width:100%" onclick="closeM()">Close</button>')}
-async function orderImg(){const o=readOrder();if(!o)return;logOrder(o);o.upd?render():refreshOrders();await showImg(mkOrderImg(o),'Water-Order-'+fmtD(today())+'.png')}
+async function orderImg(){const o=readOrder(true);if(!o)return;logOrder(o);o.upd?render():refreshOrders();await showImg(mkOrderImg(o),'Water-Order-'+fmtD(today())+'.png')}
 
 /* ---- QR code share ---- */
 const DEF_URL='https://jugnutechpk.github.io/jugnu-mineralwater/',NLN=String.fromCharCode(10);
@@ -1138,13 +1190,13 @@ function appUrl(){return S.appUrl||DEF_URL}
 function waText(){return 'Welcome to JUGNU Mineral Water! Open our application using this link:'+NLN+appUrl()}
 function saveAppUrl(){const v=$('aurl').value.trim();if(v&&!/^https:\/\/[A-Za-z0-9.-]+(:[0-9]+)?(\/[A-Za-z0-9._~\-\/%+=&?#:@!$,;]*)?$/.test(v)){toast('Enter a valid https:// link');return}S.appUrl=v;save();render();toast(v?'Link saved':'Link reset to default')}
 function qrObj(){const q=new QRLib.QRCode(-1,QRLib.ECL.Q);q.addData(appUrl());q.make();return q}
-function qrCanvas(light){const q=qrObj(),n=q.getModuleCount(),W=1080,H=1500,NV='#0b1a33',GD='#d4af37',tc=light?NV:'#ffffff',ac=light?'#8a6d0b':GD,cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+function qrCanvas(light){const q=qrObj(),n=q.getModuleCount(),W=1080,H=1500,NV='#365873',GD='#527f9f',tc=light?NV:'#ffffff',ac=light?'#8a6d0b':GD,cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
  const rr=(x,y,w,h,r,f)=>{g.beginPath();if(g.roundRect)g.roundRect(x,y,w,h,r);else g.rect(x,y,w,h);g.fillStyle=f;g.fill()};
  const tx=(t,y,z,c,b)=>{g.font=(b?'700 ':'400 ')+z+'px "Segoe UI",Roboto,Arial,sans-serif';g.fillStyle=c;g.textAlign='center';g.fillText(t,W/2,y)};
  const fitTx=(t,y,z,c)=>{while(z>14){g.font='400 '+z+'px "Segoe UI",Roboto,Arial,sans-serif';if(g.measureText(t).width<=880)break;z--}tx(t,y,z,c)};
- if(light){g.fillStyle='#ffffff';g.fillRect(0,0,W,H)}else{const bg=g.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#0b1a33');bg.addColorStop(1,'#16336b');g.fillStyle=bg;g.fillRect(0,0,W,H)}
+ if(light){g.fillStyle='#ffffff';g.fillRect(0,0,W,H)}else{const bg=g.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#365873');bg.addColorStop(1,'#dce8f1');g.fillStyle=bg;g.fillRect(0,0,W,H)}
  g.strokeStyle=GD;g.lineWidth=10;g.strokeRect(30,30,W-60,H-60);g.lineWidth=3;g.strokeRect(52,52,W-104,H-104);
- g.fillStyle='#091428';g.fillRect(60,60,W-120,250);g.fillStyle=GD;g.fillRect(60,306,W-120,6);
+ g.fillStyle='#dce8f1';g.fillRect(60,60,W-120,250);g.fillStyle=GD;g.fillRect(60,306,W-120,6);
  tx('JUGNU Mineral Water',185,82,GD,1);tx('Mineral Water Supply Management',250,34,'#c9d4ea');
  const cell=Math.floor(760/(n+8)),size=cell*(n+8),px=Math.floor((W-size)/2),py=390;
  rr(px-22,py-22,size+44,size+44,26,GD);g.fillStyle='#ffffff';g.fillRect(px,py,size,size);g.fillStyle='#000000';
@@ -1155,7 +1207,7 @@ function qrPdf(){const q=qrObj(),n=q.getModuleCount(),NL=String.fromCharCode(10)
  const R=(x,y,w,h,k)=>{c+=col(k)+' rg '+x.toFixed(2)+' '+y.toFixed(2)+' '+w.toFixed(2)+' '+h.toFixed(2)+' re f'+NL};
  const T=(t,y,z,k,b,f)=>{c+='BT /'+(b?'F2':'F1')+' '+z+' Tf '+col(k)+' rg '+(297.5-f*z/2).toFixed(2)+' '+y+' Td ('+t+') Tj ET'+NL};
  const HW=[278,278,355,556,556,889,667,191,333,333,389,584,278,333,278,278,556,556,556,556,556,556,556,556,556,556,278,278,584,584,584,556,1015,667,667,722,722,667,611,778,722,278,500,667,556,833,722,778,667,778,722,667,611,722,667,944,667,667,611,278,278,278,469,556,333,556,556,500,556,556,278,556,556,222,222,500,222,833,556,556,556,556,333,500,278,556,500,722,500,500,500,334,260,334,584],tw=s=>[...s].reduce((a,ch)=>a+(HW[ch.charCodeAt(0)-32]||556),0)/1000,Tw=(t,y,z,k)=>{const BS=String.fromCharCode(92);t=[...t].filter(ch=>ch!='('&&ch!=')'&&ch!=BS).join('');let zz=z;while(tw(t)*zz>520&&zz>6)zz--;T(t,y,zz,k,0,tw(t))};
- const NV='#0b1a33',GD='#d4af37',cell=Math.floor(380/(n+8)),size=cell*(n+8),x0=Math.round((595-size)/2),y0=250;
+ const NV='#365873',GD='#527f9f',cell=Math.floor(380/(n+8)),size=cell*(n+8),x0=Math.round((595-size)/2),y0=250;
  R(0,692,595,150,NV);R(0,688,595,4,GD);T('JUGNU Mineral Water',775,32,GD,1,10.335);T('Mineral Water Supply Management',745,14,'#c9d4ea',0,15.672);
  R(x0-12,y0-12,size+24,size+24,GD);R(x0,y0,size,size,'#ffffff');
  for(let r=0;r<n;r++){let c0=-1;for(let k=0;k<=n;k++){const d=k<n&&q.isDark(r,k);if(d&&c0<0)c0=k;if(!d&&c0>=0){R(x0+(c0+4)*cell,y0+size-(r+5)*cell,(k-c0)*cell,cell,'#000000');c0=-1}}}
@@ -1183,8 +1235,8 @@ async function hset(v){const d=await hdb();return new Promise((res,rej)=>{const 
 const canDir=()=>typeof window.showDirectoryPicker==='function';
 const bk=()=>S.backup||(S.backup={mode:'off'});
 const bkTxt=()=>JSON.stringify(S,null,1);
-const hasData=()=>S.deliveries.length||S.payments.length||(S.orders||[]).length;
-function autoBackupSoon(){if(bk().mode!='folder')return;clearTimeout(window._bt);window._bt=setTimeout(()=>backupNow(false),window._bkDelay||4000)}
+const hasData=()=>S.deliveries.length||S.payments.length||(S.orders||[]).length||(S.suppliedOrders||[]).length;
+function autoBackupSoon(){/* Manual backup keeps the experience simple for new users. */}
 async function dirReady(ask){const h=await hget();if(!h)return null;try{let p=await h.queryPermission({mode:'readwrite'});if(p!=='granted'&&ask)p=await h.requestPermission({mode:'readwrite'});return p==='granted'?h:null}catch(e){return null}}
 async function writeBackup(h){const txt=bkTxt();for(const n of['Jugnu-Water-Backup-latest.json','Jugnu-Water-Backup-'+today()+'.json']){const f=await h.getFileHandle(n,{create:true}),w=await f.createWritable();await w.write(txt);await w.close()}
  const names=[];for await(const [n] of h.entries())if(/^Jugnu-Water-Backup-\d{4}-\d{2}-\d{2}\.json$/.test(n))names.push(n);names.sort();while(names.length>30){try{await h.removeEntry(names.shift())}catch(e){break}}}
@@ -1195,11 +1247,10 @@ async function manualBackup(){if(bk().mode=='folder'){const ok=await backupNow(t
 function dlBackup(manual){const b=bk();b.last=new Date().toISOString();b.lastDay=today();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([bkTxt()],{type:'application/json'}));a.download='Jugnu-Water-Backup-'+today()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000);save(true);if(manual)toast('Backup downloaded');if(view=='set')render()}
 async function stopBackup(){await hset(null);S.backup={mode:'off'};await save(true);render();toast('Auto backup turned off')}
 function startDownloadMode(){bk().mode='download';save(true);dlBackup(true)}
-async function bkGesture(e){if(e&&e.isTrusted===false)return;const b=bk();if(b.mode=='folder'&&b.status=='perm'&&!window._askedPerm){window._askedPerm=true;if(await backupNow(true))toast('Auto backup is working')}else if(b.mode=='download'&&b.lastDay!==today()&&hasData())dlBackup(false)}
-async function bkInit(){const b=bk();if(b.mode=='folder'){const h=await dirReady(false);b.status=h?'ok':((await hget())?'perm':'nohandle');if(h&&hasData()&&(!b.last||b.last.slice(0,10)!==today()))await backupNow(false);if(view=='set')render()}}
-if(document.addEventListener)document.addEventListener('click',bkGesture,true);
+async function bkGesture(e){}
+async function bkInit(){}
 function bkCard(){const b=bk(),m=b.mode,dir=canDir(),last=b.last?new Date(b.last).toLocaleString('en-GB'):'-',st=String(b.status||'');let body='';
- if(m=='folder'&&dir){const w=st=='perm'?'<p style="color:#ffc928;font-weight:600">⚠ Tap anywhere and press Allow when the browser asks.</p>':st=='nohandle'?'<p style="color:#ffc928;font-weight:600">⚠ Please choose the backup folder again.</p>':st.indexOf('err')==0?'<p class="bad">Backup problem ('+esc(st)+').</p>':'<p class="ok">✅ Auto backup is ON</p>';
+ if(m=='folder'&&dir){const w=st=='perm'?'<p style="color:#527f9f;font-weight:600">⚠ Tap anywhere and press Allow when the browser asks.</p>':st=='nohandle'?'<p style="color:#527f9f;font-weight:600">⚠ Please choose the backup folder again.</p>':st.indexOf('err')==0?'<p class="bad">Backup problem ('+esc(st)+').</p>':'<p class="ok">✅ Auto backup is ON</p>';
   body=w+'<p>Folder: <b>'+esc(b.folder||'')+'</b><br>Last backup: <b>'+last+'</b></p>'}
  else if(m=='download')body='<p class="ok">✅ Daily auto backup is ON</p><p>Last backup: <b>'+last+'</b></p>';
  else body='<p style="color:var(--mu)">Auto backup is OFF</p>';
@@ -1227,16 +1278,31 @@ function vSet(){const sp=S.supplier;return `<h1>Settings</h1>
  <h2>Price history</h2>${[...S.prices].sort((a,b)=>b.effective.localeCompare(a.effective)).map(p=>`<div class="item"><span>${fmtD(p.effective)} → <b>${rs(p.price)}</b></span></div>`).join('')}</div>
  <div class="card"><b>Supplier (WhatsApp)</b><label>Supplier name</label><input id="sn" value="${esc(sp.name)}">
  <div class="row"><div style="flex:0 0 90px"><label>Country</label><input id="sc" value="+${esc(sp.cc)}"></div><div><label>WhatsApp number</label><input id="sph" type="tel" placeholder="3001234567" value="${esc(sp.phone)}"></div></div><button onclick="saveSup()">Save Supplier</button></div>
- <div class="card"><b>Backup &amp; data</b><br><button onclick="backup()">Backup (JSON)</button><button class="s" onclick="restoreUI()">Restore</button>${bkBtn()}<button class="d" onclick="eraseStep1()">Erase all data</button><div id="tr"></div></div>
- ${bkCard()}
+ <div class="card"><b>💾 Backup &amp; Restore</b><p style="color:var(--mu);font-size:14px">Keep a copy of your records safe. If you change phone or browser, use Restore to load that copy.</p><button onclick="backup()">⬇ Save Backup</button><button class="s" onclick="restoreUI()">📂 Restore from Backup</button><p style="color:var(--mu);font-size:12px;margin-bottom:0">Backup is saved as one file in your Downloads folder. Save it somewhere safe.</p></div>
+ <div class="card"><b style="color:var(--bad)">⚠ Data reset</b><p style="color:var(--mu);font-size:13px">Only use this if you want to remove all records from this device.</p><button class="d" onclick="eraseStep1()">Erase all data</button></div>
  <div class="card"><b>📱 Share App (QR Code)</b><p style="color:var(--mu);font-size:14px">Scan to open JUGNU Mineral Water. Download, print or share the QR code.</p><label>Application link used in the QR code</label><input id="aurl" value="${esc(appUrl())}" placeholder="https://jugnutechpk.github.io/jugnu-mineralwater/"><button class="s" onclick="saveAppUrl()">Save Link</button><button id="qrbtn" onclick="showQR()">Show QR Code</button></div>`}
 function savePrice(){const p=intv($('np').value,1,100000),e=$('ne').value;if(p===null||!e)return toast('Enter a valid price and date');setPrice(p,e);save();render();toast('Price saved')}
 function saveSup(){const ph=$('sph').value.replace(/\D/g,''),cc=$('sc').value.replace(/\D/g,'');if(ph&&ph.length<7)return toast('Number looks too short');if(!cc)return toast('Enter country code');S.supplier={name:$('sn').value.trim(),phone:ph,cc};save();toast('Supplier saved')}
-function backup(){textModal('Backup (JSON)',JSON.stringify(S,null,1),'home-water-backup-'+today()+'.json','application/json')}
-function restoreUI(){modal(`<b>Restore backup</b><label>Choose a backup file</label><input type="file" accept=".json,application/json" onchange="rf(this.files[0])"><label>…or paste backup text</label><textarea id="rt" rows="5"></textarea><button onclick="doRestore($('rt').value)">Restore</button><button class="s" onclick="closeM()">Cancel</button>`)}
-function rf(f){if(f)f.text().then(t=>{$('rt').value=t})}
-function doRestore(t){let o;try{o=JSON.parse(t);if(!Array.isArray(o.deliveries)||!Array.isArray(o.payments)||!Array.isArray(o.prices))throw 0}catch(e){return toast('Invalid backup file')}
- ask('Replace ALL current data with this backup?',()=>{S=Object.assign(fresh(),o);save();render();toast('Restored')})}
+function backup(){dlBackup(true)}
+function restoreUI(){modal(`<b>📂 Restore from Backup</b><p style="color:var(--mu);font-size:14px">Choose the JUGNU backup file you saved earlier. Your current records will be replaced after confirmation.</p><label>Select backup file</label><input type="file" accept=".json,application/json" onchange="rf(this.files[0])"><button class="s" onclick="closeM()">Cancel</button>`)}
+function rf(f){if(!f)return;f.text().then(t=>doRestore(t)).catch(()=>toast('Could not read this backup file'))}
+function validISODate(v){if(typeof v!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(v))return false;const d=new Date(v+'T00:00:00Z');return !Number.isNaN(d.getTime())&&d.toISOString().slice(0,10)===v}
+function validPositive(n){return typeof n==='number'&&Number.isFinite(n)&&n>0}
+function validateBackup(o){
+ if(!o||typeof o!=='object'||Array.isArray(o)||!Array.isArray(o.deliveries)||!Array.isArray(o.payments)||!Array.isArray(o.prices))return false;
+ if(o.deliveries.some(x=>!x||!Number.isInteger(x.id)||x.id<1||!validISODate(x.date)||!Number.isInteger(x.qty)||x.qty<1||x.qty>999||!validPositive(x.price)||!validPositive(x.amount)||x.amount!==x.qty*x.price||(x.remarks!=null&&typeof x.remarks!=='string')))return false;
+ if(o.payments.some(x=>!x||!Number.isInteger(x.id)||x.id<1||!validISODate(x.date)||!validPositive(x.amount)||(x.note!=null&&typeof x.note!=='string')))return false;
+ if(o.prices.some(x=>!x||!Number.isInteger(x.id)||x.id<1||!validISODate(x.effective)||!validPositive(x.price)))return false;
+ if(o.orders!=null&&(!Array.isArray(o.orders)||o.orders.some(x=>!x||!Number.isInteger(x.id)||x.id<1||!validISODate(x.date)||!Number.isInteger(x.qty)||x.qty<1||x.qty>999||(x.name!=null&&typeof x.name!=='string')||(x.phone!=null&&typeof x.phone!=='string')||(x.note!=null&&typeof x.note!=='string')||(x.need!=null&&x.need!==''&&!validISODate(x.need)))))return false;
+ const validOrder=x=>!!x&&Number.isInteger(x.id)&&x.id>0&&validISODate(x.date)&&Number.isInteger(x.qty)&&x.qty>=1&&x.qty<=999&&(x.name==null||typeof x.name==='string')&&(x.phone==null||typeof x.phone==='string')&&(x.note==null||typeof x.note==='string')&&(x.need==null||x.need===''||validISODate(x.need))&&(x.orderNo==null||typeof x.orderNo==='string');
+ if(o.orders!=null&&(!Array.isArray(o.orders)||o.orders.some(x=>!validOrder(x))))return false;
+ if(o.suppliedOrders!=null&&(!Array.isArray(o.suppliedOrders)||o.suppliedOrders.some(x=>!validOrder(x)||!validISODate(x.suppliedDate||x.date))))return false;
+ if(o.supplier!=null&&(typeof o.supplier!=='object'||Array.isArray(o.supplier)||(o.supplier.name!=null&&typeof o.supplier.name!=='string')||(o.supplier.phone!=null&&typeof o.supplier.phone!=='string')||(o.supplier.cc!=null&&typeof o.supplier.cc!=='string')))return false;
+ if(o.seq!=null&&(!Number.isInteger(o.seq)||o.seq<1))return false;
+ return true;
+}
+function doRestore(t){let o;try{o=JSON.parse(t);if(!validateBackup(o))throw new Error('invalid structure')}catch(e){return toast('Invalid backup file or damaged records')}
+ ask('Replace ALL current data with this backup?',()=>{const next=Object.assign(fresh(),o);next.orders=Array.isArray(o.orders)?o.orders:[];next.suppliedOrders=Array.isArray(o.suppliedOrders)?o.suppliedOrders:[];const ids=[...next.deliveries,...next.payments,...next.prices,...next.orders,...next.suppliedOrders].map(x=>x.id||0);next.seq=Math.max(Number(next.seq)||1,...ids.map(x=>x+1));next.orderSeq=Math.max(Number(next.orderSeq)||1,...[...next.orders,...next.suppliedOrders].map(x=>{const m=String(x.orderNo||'').match(/(\d+)$/);return m?Number(m[1])+1:1}));S=next;save();render();toast('Restored')})}
 function sample(){const c=mk(today()),[y,m]=c.split('-').map(Number),pm=m==1?(y-1)+'-12':y+'-'+pad(m-1);S=fresh();S.prices=[{id:1,effective:pm+'-01',price:100},{id:2,effective:c+'-03',price:120}];S.seq=10;
  [[pm+'-03',3],[pm+'-10',2],[pm+'-17',3],[pm+'-24',2]].forEach(([d,q])=>addDel({date:d,qty:q,price:100}));addPay({date:pm+'-28',amount:1000,note:'Cash'});
  [[c+'-01',3],[c+'-02',2],[c+'-03',3]].forEach(([d,q])=>addDel({date:d,qty:q,price:priceOn(d)}));addPay({date:c+'-05',amount:300,note:'Partial'});
@@ -1253,7 +1319,11 @@ function selfTest(){const bak=S,res=[],t=(n,ok)=>res.push(`<div class="${ok?'ok'
  t('Order message (5 bottles, Rs.600)',orderMsg(5,'','').includes('5 x 19L')&&orderMsg(5,'','').includes('Rs. 600'));t('WhatsApp number → 923001234567',waNumber()=='923001234567');
  Object.assign(b,{qty:3,amount:3*b.price});t('Edit: 3 × Rs.120 = Rs.360, total Rs.660',b.amount==360&&stats('2026-11').bill==660);
  const bk=JSON.stringify(S);S=Object.assign(fresh(),JSON.parse(bk));t('Backup / restore round-trip',JSON.stringify(S)==bk&&stats('2026-11').bill==660);
- t('Previous month (Oct) unchanged',JSON.stringify(stats('2026-10'))==oct&&o.amount==100)}catch(e){t('Error: '+e.message,false)}
+ t('Previous month (Oct) unchanged',JSON.stringify(stats('2026-10'))==oct&&o.amount==100);
+ const savedPrices=S.prices;S.prices=[{id:1,effective:'2026-11-10',price:150}];t('No future price applied to an earlier date',priceOn('2026-11-09')==0);S.prices=savedPrices;
+ S.deliveries=[];S.payments=[];addPay({date:'2026-11-08',amount:500});const over=stats('2026-11');t('Excess payment stays in its own month (no negative balance)',over.bal==0&&over.excess==500&&over.status=='No supplies');
+ addDel({date:'2026-12-01',qty:1,price:100});t('Excess payment is not carried into next month',stats('2026-12').paid==0&&stats('2026-12').bal==100);
+ const good=JSON.stringify({deliveries:[{id:1,date:'2026-11-01',qty:2,price:100,amount:200}],payments:[],prices:[{id:1,effective:'2026-10-01',price:100}],seq:2});t('Backup validator accepts valid records',validateBackup(JSON.parse(good)));const bad=JSON.parse(good);bad.deliveries[0].amount=999;t('Backup validator rejects damaged amount',!validateBackup(bad))}catch(e){t('Error: '+e.message,false)}
  S=bak;$('tr').innerHTML='<h2>Self-test (no data touched)</h2>'+res.join('')}
 
 if(window.addEventListener)window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();window._ip=e;if(view=='set')render()});

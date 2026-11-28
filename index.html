@@ -4,7 +4,7 @@
 <title>Mineral Water Supply Management</title>
 <meta name="application-name" content="Water Supply"><meta name="apple-mobile-web-app-title" content="Water Supply"><meta name="theme-color" content="#243b50">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="icon" type="image/png" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"><link rel="apple-touch-icon" sizes="192x192" href="icon-192.png"><link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{--bg:#e5edf3;--card:#ffffff;--c2:#dce8f1;--gold:#527f9f;--tx:#263b4d;--mu:#657d90;--ok:#25845e;--warn:#b9781d;--bad:#c94f55;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -39,8 +39,8 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 6px;t
 @media print{body.qrp main,body.qrp nav,body.qrp #cr,body.qrp #modal,body.qrp #toast{display:none!important}body.qrp{padding:0!important}body.qrp #qrprint{display:block!important;text-align:center}body.qrp #qrprint img{width:100%;max-width:170mm;height:auto}}
 button{position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;touch-action:manipulation;box-shadow:0 4px 0 rgba(0,0,0,.38),0 8px 14px rgba(0,0,0,.30);transition:transform .08s ease,box-shadow .08s ease,filter .08s ease}
 button::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.38) 0%,rgba(255,255,255,.10) 50%,rgba(0,0,0,.06) 100%);pointer-events:none}
-button:active{transform:translateY(3px) scale(.97);box-shadow:0 1px 0 rgba(0,0,0,.3),inset 0 3px 8px rgba(0,0,0,.22);filter:brightness(.74) saturate(1.7)}
-button:active::before{background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.16))}
+button:active{transform:translateY(3px) scale(.97);box-shadow:0 1px 0 rgba(0,0,0,.3),inset 0 3px 8px rgba(0,0,0,.22);}
+button:active::before{background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.16))}button:active,nav button:active{filter:none!important}
 button.sm{box-shadow:0 2px 0 rgba(0,0,0,.38),0 4px 8px rgba(0,0,0,.25)}button.sm:active{box-shadow:0 0 0 rgba(0,0,0,.38),inset 0 2px 5px rgba(0,0,0,.35)}
 button .rp{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:rp .5s ease-out forwards;pointer-events:none}
 @keyframes rp{to{transform:scale(2.4);opacity:0}}
@@ -48,11 +48,11 @@ nav{gap:5px;padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px))}
 nav button{background:#547f9f;color:#fff;border-radius:12px;padding:7px 2px 6px;overflow:hidden;box-shadow:0 3px 0 rgba(0,0,0,.45),0 5px 9px rgba(0,0,0,.30)}
 nav button::before{display:block}
 nav button.on{background:#527f9f;color:#ffffff}
-nav button:active{transform:translateY(2px) scale(.96);box-shadow:0 1px 0 rgba(0,0,0,.45),inset 0 3px 7px rgba(0,0,0,.25);filter:saturate(1.8) brightness(.82)}
+nav button:active{transform:translateY(2px) scale(.96);box-shadow:0 1px 0 rgba(0,0,0,.45),inset 0 3px 7px rgba(0,0,0,.25);}
 .tile{display:inline-flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;min-height:58px;margin:0;padding:10px 8px;font-size:14px;line-height:1.2;text-align:left;border-radius:16px}
 .tile .ti{font-size:24px;line-height:1;flex:0 0 auto}.tile .tl{display:block}
 .tile .ti,.tile .tl{position:relative;z-index:1}
-.tile:active{filter:saturate(1.8)}.tile:active::before{mix-blend-mode:multiply;background:#939393}
+.tile:active{filter:saturate(1.8)}.tile:active::before{mix-blend-mode:normal;background:rgba(255,255,255,.18)}
 @media print{button{box-shadow:none!important}}
 
 /* JUGNU Smoke Blue theme refresh */
@@ -99,7 +99,7 @@ nav button span{color:inherit}
 #toast{background:#172d40;color:#fff}
 @media print{#app h1{background:#fff!important;color:#000!important;box-shadow:none;border-bottom:1px solid #aaa}}
 
-</style></head><body>
+nav button[onclick="go('ord')"] span{font-size:0;display:block;width:34px;height:26px;margin:0 auto 2px;border-radius:9px;background:#f4f8fb url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000' d='M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM1 2h3l2.6 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 6H6.2L5.7 3.6A1 1 0 0 0 4.7 2.8H1z'/></svg>") center/20px 20px no-repeat;box-shadow:0 1px 2px rgba(0,0,0,.25)}</style></head><body>
 <main id="app"></main>
 <nav id="nav"></nav><div id="cr"><span>Created by <br class="nb">Jugnu Technology</span></div><div id="modal"><div id="mbox"></div></div><div id="toast"></div><div id="qrprint"></div>
 <script>
@@ -1047,7 +1047,7 @@ const intv=(v,min,max)=>{const n=Number(v);return v!==''&&Number.isInteger(n)&&n
 
 /* ---- views ---- */
 function nav(){$('nav').innerHTML=[['dash','📊','Dashboard'],['del','🚚','Supplies'],['pay','💰','Payments'],['ord','🛒','Order'],['rep','📄','Reports'],['set','⚙️','Settings']].map(([k,i,t])=>`<button class="${view==k?'on':''}" onclick="go('${k}')"><span>${i}</span>${t}</button>`).join('')}
-function go(v){view=v;edit=null;editOrd=null;render();window.scrollTo(0,0)}
+function go(v){view=v;edit=null;editOrd=null;reorderOrd=null;render();window.scrollTo(0,0)}
 function tileize(){document.querySelectorAll('#app button').forEach(b=>{if(b.classList.contains('tile'))return;const oc=b.getAttribute('onclick')||'';
  if(!(b.classList.contains('wa')||oc.indexOf("go('del')")>-1||oc.indexOf("go('pay')")>-1))return;
  const t=b.textContent.trim();let ic='',lb=t,m=t.match(/^([^\w\s+]+)\s+(.+)$/);
@@ -1116,21 +1116,22 @@ function cp(){const t=$('tx');t.select();try{navigator.clipboard.writeText(windo
 function csv(){const d=repData();const q=v=>'"'+String(v).replace(/"/g,'""')+'"';textModal('CSV – '+d.t,[d.h,...d.r].map(r=>r.map(q).join(',')).join('\n'),'report-'+rep.type+'.csv','text/csv')}
 
 /* ---- colourful PNG image update ---- */
-function mkImg(){const l=lastDel(),mo=mk(l.date),s=stats(mo),W=1080,D=S.orderer?70:0,H=1500+D,NV='#17354d',GD='#365873',cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+function ink(h){const r=parseInt(h.substr(1,2),16),g=parseInt(h.substr(3,2),16),b=parseInt(h.substr(5,2),16);return (0.299*r+0.587*g+0.114*b)<150?'#ffffff':'#365873'}
+function mkImg(){const l=lastDel(),mo=mk(l.date),s=stats(mo),W=1080,D=S.orderer?70:0,H=1500+D,NV='#365873',GD='#527f9f',cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
  const rr=(x,y,w,h,r,f)=>{g.beginPath();if(g.roundRect)g.roundRect(x,y,w,h,r);else g.rect(x,y,w,h);g.fillStyle=f;g.fill()};
- const tx=(t,x,y,z,c,b,al)=>{g.font=(b?'700 ':'500 ')+z+'px "Segoe UI",Roboto,Arial,sans-serif';g.fillStyle=c;g.textAlign=al||'left';g.fillText(String(t),x,y)};
- const fit=(t,max,z)=>{t=String(t);while(z>20){g.font='700 '+z+'px "Segoe UI",Roboto,Arial,sans-serif';if(g.measureText(t).width<=max)break;z-=2}return z};
+ const tx=(t,x,y,z,c,b,al)=>{g.font=(b?'700 ':'400 ')+z+'px "Segoe UI",Roboto,Arial,sans-serif';g.fillStyle=c;g.textAlign=al||'left';g.fillText(String(t),x,y)};
  const bg=g.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#365873');bg.addColorStop(1,'#8daec5');g.fillStyle=bg;g.fillRect(0,0,W,H);
- g.fillStyle='#17354d';g.fillRect(0,0,W,230);g.fillStyle='#d7b56d';g.fillRect(0,226,W,8);
- tx('💧 Home Water Supply Update',50,100,50,'#ffffff',1);tx('Assalam-o-Alaikum'+(S.supplier.name?' - '+S.supplier.name:''),50,155,32,'#ffffff',1);tx('Statement for '+mLabel(mo),50,200,28,'#e7f0f7',1);
- rr(40,270,1000,380+D,28,'#ffffff');tx('🚚 SUPPLY DETAILS',70,325,34,NV,1);if(S.orderer){rr(60,345,960,54,14,'#fde8e8');tx('Of: '+S.orderer,85,383,34,'#9f1239',1)}
- [['Date',fmtD(l.date)],['Bottles Received',l.qty+' x 19L'],['Rate per Bottle',rs(l.price)],["Today's Amount",rs(l.amount)]].forEach((r,i)=>{const y=395+D+i*62;rr(60,y-42,960,56,14,i%2?'#f0f5f9':'#e3edf4');tx(r[0],85,y,32,NV,1);tx(r[1],995,y,fit(r[1],490,32),NV,1,'right')});
- g.translate(0,D);[['Total Bottles',String(s.bottles),'#365873','#ffffff',40,690],['Monthly Bill',rs(s.bill),'#527f9f','#ffffff',550,690],['Payment Received',rs(s.paid),'#16784c','#ffffff',40,880],['Remaining Balance',rs(s.bal),'#b9382b','#ffffff',550,880]].forEach(b=>{rr(b[4],b[5],490,170,28,b[2]);tx(b[0],b[4]+30,b[5]+60,30,'#ffffff',1);tx(b[1],b[4]+30,b[5]+130,fit(b[1],420,58),'#ffffff',1)});
- const sc=s.status=='Paid'?'#16784c':s.status=='Partially Paid'?'#a86600':s.status=='Unpaid'?'#b9382b':'#52677a';rr(40,1075,560,80,40,sc);tx('Status: '+s.status,70,1129,38,'#ffffff',1);
- rr(40,1180,1000,250,28,'#ffffff');tx('This month’s supplies',70,1228,30,NV,1);
+ g.fillStyle='#dce8f1';g.fillRect(0,0,W,230);g.fillStyle=GD;g.fillRect(0,226,W,8);
+ tx('💧 Home Water Supply Update',50,100,50,NV,1);tx('Assalam-o-Alaikum'+(S.supplier.name?' - '+S.supplier.name:''),50,155,32,NV);tx('Statement for '+mLabel(mo),50,200,28,NV);
+ rr(40,270,1000,380+D,28,'#ffffff');tx('🚚 SUPPLY DETAILS',70,325,34,NV,1);if(S.orderer){rr(60,345,960,54,14,'#fde8e8');tx('Of: '+S.orderer,85,383,34,'#d62828',1)}
+ [['Date',fmtD(l.date)],['Bottles Received',l.qty+' x 19L'],['Rate per Bottle',rs(l.price)],["Today's Amount",rs(l.amount)]].forEach((r,i)=>{const y=395+D+i*62;rr(60,y-42,960,56,14,i%2?'#f0f5f9':'#e3edf4');tx(r[0],85,y,32,NV);tx(r[1],995,y,32,NV,1,'right')});
+ g.translate(0,D);[['Total Bottles',String(s.bottles),'#5d8eaf','#ffffff',40,690],['Monthly Bill',rs(s.bill),GD,NV,550,690],['Payment Received',rs(s.paid),'#1f9d63','#ffffff',40,880],['Remaining Balance',rs(s.bal),'#e0533d','#ffffff',550,880]].forEach(b=>{rr(b[4],b[5],490,170,28,b[2]);tx(b[0],b[4]+30,b[5]+60,30,ink(b[2]));tx(b[1],b[4]+30,b[5]+130,58,ink(b[2]),1)});
+ const sc=s.status=='Paid'?'#1f9d63':s.status=='Partially Paid'?'#e69b1a':s.status=='Unpaid'?'#e0533d':'#71889b';rr(40,1075,560,80,40,sc);tx('Status: '+s.status,70,1129,38,ink(sc),1);
+ rr(40,1180,1000,250,28,'#ffffff');tx('This month\u2019s supplies',70,1228,30,NV,1);
  const ds=S.deliveries.filter(d=>mk(d.date)==mo).sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id);
- ds.slice(0,4).forEach((d,i)=>{const y=1278+i*40;tx(fmtD(d.date),70,y,28,NV,1);tx(d.qty+' bottle(s)',420,y,28,NV,1);tx(rs(d.amount),1010,y,fit(rs(d.amount),250,28),NV,1,'right')});if(ds.length>4)tx('+ '+(ds.length-4)+' more supplies',70,1428,24,'#52677a',1);
- tx('Thank you 🙏  Mineral Water Supply Management',W/2,1475,26,'#17354d',1,'center');return cv}
+ ds.slice(0,4).forEach((d,i)=>{const y=1278+i*40;tx(fmtD(d.date),70,y,28,NV);tx(d.qty+' bottle(s)',420,y,28,NV);tx(rs(d.amount),1010,y,28,NV,1,'right')});if(ds.length>4)tx('+ '+(ds.length-4)+' more supplies',70,1428,24,NV);
+ tx('Thank you 🙏  Mineral Water Supply Management',W/2,1475,26,NV,0,'center');return cv}
+
 /* ---- image to WhatsApp menu ---- */
 async function imgMenu(){const l=lastDel();if(!l)return toast('Add a supply first');await showImg(mkImg(),'Water-Update-'+fmtD(l.date)+'.png')}
 function cst(t){const e=$('cst');if(e)e.textContent=t}
@@ -1138,50 +1139,49 @@ async function doShare(){const f=new File([window._b],window._n,{type:'image/png
 
 /* ---- order bottles page ---- */
 let editOrd=null;
+let reorderOrd=null;
 function nextOrderNo(){return 'JUG-'+String(S.orderSeq||1).padStart(4,'0')}
-function vOrder(){const e=editOrd?(S.orders||[]).find(x=>x.id==editOrd):null,q=e?e.qty:(lastDel()?lastDel().qty:1),orderDate=e?e.date:today();
+function vOrder(){const e=editOrd?(S.orders||[]).find(x=>x.id==editOrd):null,r=reorderOrd?(S.orders||[]).find(x=>x.id==reorderOrd):null,q=e?e.qty:'',orderDate=e?e.date:today();
  const orderNo=e?(e.orderNo||'JUG-'+String(e.id).padStart(4,'0')):nextOrderNo();
  return `<h1>🛒 Order Bottles</h1>${e?`<div class="card" style="border-color:var(--gold)"><b>✏️ Editing ${esc(orderNo)}</b><button class="sm s" style="margin:0 0 0 10px" onclick="editOrd=null;render()">Cancel edit</button></div>`:''}<div class="card"><small style="color:var(--mu)">Current rate: ${rs(priceOn(today()))} per 19L bottle</small>
  <div class="row"><div><label>Order number (automatic)</label><input id="ono" value="${esc(orderNo)}" readonly></div><div><label>Order date</label><input type="date" id="odate" value="${orderDate}"></div></div>
- <label>Your name (who is ordering)</label><input id="onm" maxlength="40" placeholder="e.g. Ahmed" value="${esc(e?e.name:(S.orderer||''))}">
- <label>Your mobile number</label><input id="omb" type="tel" inputmode="tel" maxlength="20" placeholder="e.g. 0300 1234567" value="${esc(e?(e.phone||''):(S.ordererPhone||''))}">
+ <label>Your name (who is ordering)</label><input id="onm" maxlength="40" placeholder="e.g. Ahmed" value="${esc(e?e.name:(r?r.name:(S.orderer||'')))}">
+ <label>Your mobile number</label><input id="omb" type="tel" inputmode="tel" maxlength="20" placeholder="e.g. 0300 1234567" value="${esc(e?(e.phone||''):(r?(r.phone||''):(S.ordererPhone||'')))}">
  <label>Number of 19L bottles</label><div class="row" style="align-items:center"><button class="s" style="margin:0;flex:0 0 64px" onclick="oq(-1)">−</button><input type="number" id="oq" min="1" max="999" step="1" inputmode="numeric" value="${q}" style="text-align:center;font-size:20px"><button class="s" style="margin:0;flex:0 0 64px" onclick="oq(1)">+</button></div>
- <div class="row"><div><label>Needed by (optional)</label><input type="date" id="od" value="${e?esc(e.need||''):''}"></div><div><label>Note (optional)</label><input id="on" maxlength="60" value="${e?esc(e.note||''):''}"></div></div>
+ <div class="row"><div><label>Needed by (optional)</label><input type="text" id="od" maxlength="40" placeholder="e.g. Monday evening" value="${e?esc(e.need||''):(r?esc(r.need||''):'')}"></div><div><label>Note (optional)</label><input id="on" maxlength="60" value="${e?esc(e.note||''):(r?esc(r.note||''):'')}"></div></div>
  ${e?'<div class="row" style="margin-top:12px"><button class="wa" style="background:#527f9f;color:#ffffff" onclick="saveOrderEdit()">💾 Save Changes</button></div>':''}
  <div class="row" style="margin-top:12px"><button class="wa" onclick="sendOrder()">📲 Text on WhatsApp</button><button class="wa" style="background:#ff5533;color:#fff" onclick="orderImg()">🖼 Image on WhatsApp</button></div></div>
- <h2>Pending orders</h2><div class="card" id="olist">${ordList()}</div>
- <h2>Supplied orders</h2><div class="card" id="slist">${suppliedList()}</div>`}
-function ordList(){const o=(S.orders||[]).slice().reverse();return o.map(x=>`<div class="item"><div><b>${esc(x.orderNo||('JUG-'+String(x.id).padStart(4,'0')))}</b> · ${fmtD(x.date)}<br><b>${x.qty} bottles</b> · <small>${esc(x.name||'')}${x.phone?' · '+esc(x.phone):''}${x.note?' · '+esc(x.note):''}</small></div><div><button class="sm" style="background:#27845e;color:#fff" onclick="markOrderSupplied(${x.id})">✓ Supplied</button><button class="sm s" onclick="editOrder(${x.id})">Edit</button></div></div>`).join('')||'<small>No pending orders.</small>'}
+ <h2>Pending orders</h2><div class="card" id="olist">${ordList()}</div>`}
+function ordList(){const o=(S.orders||[]).slice().reverse();return o.map(x=>`<div class="item"><div><b>${esc(x.orderNo||('JUG-'+String(x.id).padStart(4,'0')))}</b> · ${fmtD(x.date)}<br><b>${x.qty} bottles</b> · <small>${esc(x.name||'')}${x.phone?' · '+esc(x.phone):''}${x.note?' · '+esc(x.note):''}</small></div><div><button class="sm" style="background:#27845e;color:#fff" onclick="reorderOrder(${x.id})">↻ Reorder</button><button class="sm d" onclick="cancelOrder(${x.id})">✕ Cancel</button></div></div>`).join('')||'<small>No pending orders.</small>'}
 function suppliedList(){const o=(S.suppliedOrders||[]).slice().reverse().slice(0,12);return o.map(x=>`<div class="item"><div><b>${esc(x.orderNo||('JUG-'+String(x.id).padStart(4,'0')))}</b> · ${fmtD(x.date)}<br>${x.qty} bottles · <span class="tag Paid">Supplied</span><br><small>Supplied on ${fmtD(x.suppliedDate||x.date)}${x.name?' · '+esc(x.name):''}</small></div></div>`).join('')||'<small>No supplied orders yet.</small>'}
-function refreshOrders(){const e=$('olist');if(e)e.innerHTML=ordList();const a=$('slist');if(a)a.innerHTML=suppliedList()}
-function delOrder(id){ask('Delete this order record permanently?',()=>{S.orders=S.orders.filter(x=>x.id!=id);if(editOrd==id)editOrd=null;save();render()})}
-function editOrder(id){editOrd=id;render();scrollTo(0,0)}
-function markOrderSupplied(id){const o=(S.orders||[]).find(x=>x.id==id);if(!o)return;ask('Mark '+(o.orderNo||'this order')+' as supplied? A matching supply record will be added automatically.',()=>{const d=addDel({date:today(),qty:o.qty,price:priceOn(today()),remarks:'Supplied against '+(o.orderNo||'order')});S.orders=S.orders.filter(x=>x.id!=id);S.suppliedOrders=S.suppliedOrders||[];S.suppliedOrders.push({...o,status:'Supplied',suppliedDate:today(),deliveryId:d.id});selM=mk(today());save();render();toast('Order marked supplied and added to Supplies')})}
+function refreshOrders(){const e=$('olist');if(e)e.innerHTML=ordList()}
+function cancelOrder(id){const o=(S.orders||[]).find(x=>x.id==id);if(!o)return;ask('Cancel order '+(o.orderNo||'')+'? This will remove it from pending orders. No supply record will be changed.',()=>{S.orders=S.orders.filter(x=>x.id!=id);if(editOrd==id)editOrd=null;if(reorderOrd==id)reorderOrd=null;save();render();toast('Order cancelled')})}
+function reorderOrder(id){const o=(S.orders||[]).find(x=>x.id==id);if(!o)return;editOrd=null;reorderOrd=id;render();scrollTo(0,0)}
+function editOrder(id){editOrd=id;reorderOrd=null;render();scrollTo(0,0)}
 function oq(d){const e=$('oq'),v=Number(e.value)||0;e.value=Math.max(1,Math.min(999,v+d))}
-function orderMsg(q,need,note,name,phone,upd,orderDate,orderNo){const NL=String.fromCharCode(10),B='```',R=(a,w)=>a.map(([k,v])=>k.padEnd(w)+': '+v).join(NL),p=priceOn(today()),rows=[['Order No.',orderNo||''],['Bottles Required',q+' x 19L'],['Order Date',fmtD(orderDate||today())],['Current Rate',rs(p)],['Estimated Amount',rs(q*p)]];if(need)rows.splice(2,0,['Needed By',fmtD(need)]);if(phone)rows.unshift(['Mobile',phone]);if(name)rows.unshift(['Ordered By',name]);
+function orderMsg(q,need,note,name,phone,upd,orderDate,orderNo){const NL=String.fromCharCode(10),B='```',R=(a,w)=>a.map(([k,v])=>k.padEnd(w)+': '+v).join(NL),p=priceOn(today()),rows=[['Order No.',orderNo||''],['Bottles Required',q+' x 19L'],['Order Date',fmtD(orderDate||today())],['Current Rate',rs(p)],['Estimated Amount',rs(q*p)]];if(need)rows.splice(2,0,['Needed By',need]);if(phone)rows.unshift(['Mobile',phone]);if(name)rows.unshift(['Ordered By',name]);
  return ['Assalam-o-Alaikum 🌙','',upd?'✏️ *Updated Bottle Order*':'🛒 *New Bottle Order*','',B,R(rows,17),B].concat(note?['','📝 '+note]:[],['','Kindly deliver at your earliest convenience.','🙏 Thank you.']).join(NL)}
-function readOrder(nophone){const name=$('onm').value.trim(),ph=$('omb').value.trim(),q=intv($('oq').value,1,999),date=$('odate').value,orderNo=$('ono').value;if(!date){toast('Select order date');return null}if(!name){toast('Enter your name');return null}if(ph&&!/^\+?[0-9 -]{7,18}$/.test(ph)){toast('Enter a valid mobile number');return null}if(q===null){toast('Enter bottles between 1 and 999');return null}if(!nophone&&!S.supplier.phone){toast('Set supplier WhatsApp number in Settings');return null}return{name,phone:ph,q,date,orderNo,need:$('od').value,note:$('on').value.trim(),upd:!!editOrd}}
-function logOrder(o){S.orderer=o.name;S.ordererPhone=o.phone;const L=(S.orders=S.orders||[]),e=editOrd&&L.find(x=>x.id==editOrd);let saved;if(e){Object.assign(e,{orderNo:e.orderNo||('JUG-'+String(e.id).padStart(4,'0')),date:o.date,qty:o.q,need:o.need,note:o.note,name:o.name,phone:o.phone,edited:today()});saved=e}else{saved=L.find(x=>x.date==o.date&&x.name==o.name&&(x.phone||'')==o.phone&&x.qty==o.q&&(x.need||'')==o.need&&(x.note||'')==o.note);if(!saved){const id=S.seq++;saved={id,orderNo:o.orderNo||nextOrderNo(),date:o.date,qty:o.q,need:o.need,note:o.note,name:o.name,phone:o.phone};L.push(saved);S.orderSeq=(S.orderSeq||1)+1}}o.orderNo=saved.orderNo;editOrd=null;save();return saved}
+function readOrder(nophone){const name=$('onm').value.trim(),ph=$('omb').value.trim(),q=intv($('oq').value,1,999),date=$('odate').value,orderNo=$('ono').value;if(!date){toast('Select order date');return null}if(!name){toast('Enter your name');return null}if(ph&&!/^\+?[0-9 -]{7,18}$/.test(ph)){toast('Enter a valid mobile number');return null}if(q===null){toast('Enter bottles between 1 and 999');return null}if(!nophone&&!S.supplier.phone){toast('Set supplier WhatsApp number in Settings');return null}return{name,phone:ph,q,date,orderNo,need:$('od').value,note:$('on').value.trim(),upd:!!editOrd,isReorder:!!reorderOrd}}
+function logOrder(o){S.orderer=o.name;S.ordererPhone=o.phone;const L=(S.orders=S.orders||[]),e=editOrd&&L.find(x=>x.id==editOrd);let saved;if(e){Object.assign(e,{orderNo:e.orderNo||('JUG-'+String(e.id).padStart(4,'0')),date:o.date,qty:o.q,need:o.need,note:o.note,name:o.name,phone:o.phone,edited:today()});saved=e}else{saved=o.isReorder?null:L.find(x=>x.date==o.date&&x.name==o.name&&(x.phone||'')==o.phone&&x.qty==o.q&&(x.need||'')==o.need&&(x.note||'')==o.note);if(!saved){const id=S.seq++;saved={id,orderNo:o.orderNo||nextOrderNo(),date:o.date,qty:o.q,need:o.need,note:o.note,name:o.name,phone:o.phone};L.push(saved);S.orderSeq=(S.orderSeq||1)+1}}o.orderNo=saved.orderNo;editOrd=null;reorderOrd=null;save();return saved}
 function saveOrderEdit(){const o=readOrder(true);if(!o)return;logOrder(o);render();toast('Order updated')}
 function sendOrder(){const o=readOrder();if(!o)return;logOrder(o);const url='https://wa.me/'+waNumber()+'?text='+encodeURIComponent(orderMsg(o.q,o.need,o.note,o.name,o.phone,o.upd,o.date,o.orderNo)),w=window.open(url,'_blank');
  if(!w)modal('<p>Tap the link to open WhatsApp:</p><p><a style="color:var(--gold)" href="'+url+'" target="_blank" rel="noopener">Open WhatsApp</a></p><button class="s" onclick="closeM()">Close</button>');o.upd?render():refreshOrders()}
-function mkOrderImg(o){const W=1080,H=1400,NV='#17354d',GD='#365873',p=priceOn(today()),cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+function mkOrderImg(o){const W=1080,H=1380,NV='#365873',GD='#527f9f',p=priceOn(today()),cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
  const rr=(x,y,w,h,r,f)=>{g.beginPath();if(g.roundRect)g.roundRect(x,y,w,h,r);else g.rect(x,y,w,h);g.fillStyle=f;g.fill()};
- const tx=(t,x,y,z,c,b,al)=>{g.font=(b?'700 ':'500 ')+z+'px "Segoe UI",Roboto,Arial,sans-serif';g.fillStyle=c;g.textAlign=al||'left';g.fillText(String(t),x,y)};
- const fit=(t,max,z)=>{t=String(t);while(z>20){g.font='700 '+z+'px "Segoe UI",Roboto,Arial,sans-serif';if(g.measureText(t).width<=max)break;z-=2}return z};
+ const tx=(t,x,y,z,c,b,al)=>{g.font=(b?'700 ':'400 ')+z+'px "Segoe UI",Roboto,Arial,sans-serif';g.fillStyle=c;g.textAlign=al||'left';g.fillText(String(t),x,y)};
  const bg=g.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#365873');bg.addColorStop(1,'#8daec5');g.fillStyle=bg;g.fillRect(0,0,W,H);
- g.fillStyle='#17354d';g.fillRect(0,0,W,230);g.fillStyle='#d7b56d';g.fillRect(0,226,W,8);
- tx(o.upd?'✏️ Updated Bottle Order':'🛒 New Bottle Order',50,100,56,'#ffffff',1);tx('Assalam-o-Alaikum'+(S.supplier.name?' - '+S.supplier.name:''),50,155,32,'#ffffff',1);tx('Order No: '+(o.orderNo||'')+'   |   Order date: '+fmtD(o.date||today()),50,200,28,'#e7f0f7',1);
- rr(40,270,1000,250,32,'#16784c');tx('💧 BOTTLES REQUIRED',70,330,32,'#ffffff',1);tx(o.q,70,470,150,'#ffffff',1);tx('× 19L bottle'+(o.q>1?'s':''),W-70,470,48,'#e7fff1',1,'right');
- rr(40,550,1000,350,28,'#ffffff');tx('📋 ORDER DETAILS',70,605,34,NV,1);
- [['Ordered By',o.name],o.phone?['Mobile',o.phone]:['Bottles',o.q+' × 19L'],['Order Number',o.orderNo||''],['Order Date',fmtD(o.date||today())],['Needed By',o.need?fmtD(o.need):'As soon as possible']].forEach((r,i)=>{const y=665+i*58;rr(60,y-39,960,52,14,i%2?'#f0f5f9':'#e3edf4');tx(r[0],85,y,30,NV,1);tx(r[1],995,y,fit(r[1],510,30),NV,1,'right')});
- rr(40,930,490,170,28,'#365873');tx('Rate per Bottle',70,990,30,'#ffffff',1);tx(rs(p),70,1060,58,'#ffffff',1);
- rr(550,930,490,170,28,'#527f9f');tx('Estimated Amount',580,990,30,'#ffffff',1);tx(rs(o.q*p),580,1060,fit(rs(o.q*p),420,58),'#ffffff',1);
- if(o.note){rr(40,1120,1000,80,24,'#fff3c4');tx('📝 '+o.note,70,1172,fit('📝 '+o.note,920,30),'#17354d',1)}
- rr(40,1230,650,80,40,'#b9382b');tx((o.upd?'Status: Order Updated':'Status: Order Placed'),70,1284,36,'#ffffff',1);
- tx('Please deliver at your earliest convenience 🙏',W/2,1360,26,'#17354d',1,'center');return cv}
+ g.fillStyle='#dce8f1';g.fillRect(0,0,W,230);g.fillStyle=GD;g.fillRect(0,226,W,8);
+ tx(o.upd?'✏️ Updated Bottle Order':'🛒 New Bottle Order',50,100,56,NV,1);tx('Assalam-o-Alaikum'+(S.supplier.name?' - '+S.supplier.name:''),50,155,32,NV);tx('Order No: '+(o.orderNo||'')+'   |   Order date: '+fmtD(o.date||today()),50,200,28,NV);
+ rr(40,270,1000,250,32,'#1f9d63');tx('💧 BOTTLES REQUIRED',70,330,32,'#ffffff',1);tx(o.q,70,470,150,'#ffffff',1);tx('× 19L bottle'+(o.q>1?'s':''),W-70,470,48,'#d9ffe9',1,'right');
+ rr(40,550,1000,330,28,'#ffffff');tx('📋 ORDER DETAILS',70,605,34,NV,1);
+ [['Ordered By',o.name],o.phone?['Mobile',o.phone]:['Bottles',o.q+' × 19L'],['Order Number',o.orderNo||''],['Order Date',fmtD(o.date||today())],['Needed By',o.need||'As soon as possible']].forEach((r,i)=>{const y=675+i*62;rr(60,y-42,960,56,14,i%2?'#f0f5f9':'#e3edf4');tx(r[0],85,y,32,NV);tx(r[1],995,y,32,NV,1,'right')});
+ rr(40,910,490,170,28,'#5d8eaf');tx('Rate per Bottle',70,970,30,'#ffffff');tx(rs(p),70,1040,58,'#ffffff',1);
+ rr(550,910,490,170,28,GD);tx('Estimated Amount',580,970,30,'#ffffff');tx(rs(o.q*p),580,1040,58,'#ffffff',1);
+ if(o.note){rr(40,1110,1000,90,28,'#fff3c4');tx('📝 '+o.note,70,1167,30,NV)}
+ rr(40,1230,560,80,40,'#e0533d');tx((o.upd?'Status: Order Updated':'Status: Order Placed'),70,1284,36,'#ffffff',1);
+ tx('Please deliver at your earliest convenience 🙏',W/2,1355,26,NV,0,'center');return cv}
 async function showImg(cv,n){window._b=await new Promise(r=>cv.toBlob(r,'image/png'));window._n=n;const u=cv.toDataURL('image/png'),AB='display:inline-block;padding:14px 18px;border-radius:12px;font-weight:600;margin:8px 8px 0 0;text-decoration:none;background:#527f9f;color:#ffffff;',wl='https://wa.me/'+(S.supplier.phone?waNumber():'');
- modal('<b>Colourful image ready</b><div id="cpy" style="margin-top:8px;outline:none"><img id="pimg" alt="Image" src="'+u+'" style="width:100%;border-radius:10px"></div><div id="cst" style="margin:8px 0;color:var(--gold);font-weight:600"></div><button style="width:100%" onclick="doShare()">📤 Share menu</button><button class="s" style="width:100%" onclick="closeM()">Close</button>')}
+ modal('<div id="cpy" style="margin-top:8px;outline:none"><img id="pimg" alt="Image" src="'+u+'" style="width:100%;border-radius:10px"></div><div id="cst" style="margin:8px 0;color:var(--gold);font-weight:600"></div><button style="width:100%" onclick="doShare()">📤 Share menu</button><button class="s" style="width:100%" onclick="closeM()">Close</button>')}
 async function orderImg(){const o=readOrder(true);if(!o)return;logOrder(o);o.upd?render():refreshOrders();await showImg(mkOrderImg(o),'Water-Order-'+fmtD(today())+'.png')}
 
 /* ---- QR code share ---- */
@@ -1190,14 +1190,14 @@ function appUrl(){return S.appUrl||DEF_URL}
 function waText(){return 'Welcome to JUGNU Mineral Water! Open our application using this link:'+NLN+appUrl()}
 function saveAppUrl(){const v=$('aurl').value.trim();if(v&&!/^https:\/\/[A-Za-z0-9.-]+(:[0-9]+)?(\/[A-Za-z0-9._~\-\/%+=&?#:@!$,;]*)?$/.test(v)){toast('Enter a valid https:// link');return}S.appUrl=v;save();render();toast(v?'Link saved':'Link reset to default')}
 function qrObj(){const q=new QRLib.QRCode(-1,QRLib.ECL.Q);q.addData(appUrl());q.make();return q}
-function qrCanvas(light){const q=qrObj(),n=q.getModuleCount(),W=1080,H=1500,NV='#365873',GD='#527f9f',tc=light?NV:'#ffffff',ac=light?'#8a6d0b':GD,cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+function qrCanvas(light){const q=qrObj(),n=q.getModuleCount(),W=1080,H=1500,NV='#365873',GD='#527f9f',tc=NV,ac=light?'#8a6d0b':NV,cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
  const rr=(x,y,w,h,r,f)=>{g.beginPath();if(g.roundRect)g.roundRect(x,y,w,h,r);else g.rect(x,y,w,h);g.fillStyle=f;g.fill()};
  const tx=(t,y,z,c,b)=>{g.font=(b?'700 ':'400 ')+z+'px "Segoe UI",Roboto,Arial,sans-serif';g.fillStyle=c;g.textAlign='center';g.fillText(t,W/2,y)};
  const fitTx=(t,y,z,c)=>{while(z>14){g.font='400 '+z+'px "Segoe UI",Roboto,Arial,sans-serif';if(g.measureText(t).width<=880)break;z--}tx(t,y,z,c)};
  if(light){g.fillStyle='#ffffff';g.fillRect(0,0,W,H)}else{const bg=g.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#365873');bg.addColorStop(1,'#dce8f1');g.fillStyle=bg;g.fillRect(0,0,W,H)}
  g.strokeStyle=GD;g.lineWidth=10;g.strokeRect(30,30,W-60,H-60);g.lineWidth=3;g.strokeRect(52,52,W-104,H-104);
  g.fillStyle='#dce8f1';g.fillRect(60,60,W-120,250);g.fillStyle=GD;g.fillRect(60,306,W-120,6);
- tx('JUGNU Mineral Water',185,82,GD,1);tx('Mineral Water Supply Management',250,34,'#c9d4ea');
+ tx('JUGNU Mineral Water',185,82,NV,1);tx('Mineral Water Supply Management',250,34,NV);
  const cell=Math.floor(760/(n+8)),size=cell*(n+8),px=Math.floor((W-size)/2),py=390;
  rr(px-22,py-22,size+44,size+44,26,GD);g.fillStyle='#ffffff';g.fillRect(px,py,size,size);g.fillStyle='#000000';
  for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))g.fillRect(px+(c+4)*cell,py+(r+4)*cell,cell,cell);
@@ -1293,8 +1293,8 @@ function validateBackup(o){
  if(o.deliveries.some(x=>!x||!Number.isInteger(x.id)||x.id<1||!validISODate(x.date)||!Number.isInteger(x.qty)||x.qty<1||x.qty>999||!validPositive(x.price)||!validPositive(x.amount)||x.amount!==x.qty*x.price||(x.remarks!=null&&typeof x.remarks!=='string')))return false;
  if(o.payments.some(x=>!x||!Number.isInteger(x.id)||x.id<1||!validISODate(x.date)||!validPositive(x.amount)||(x.note!=null&&typeof x.note!=='string')))return false;
  if(o.prices.some(x=>!x||!Number.isInteger(x.id)||x.id<1||!validISODate(x.effective)||!validPositive(x.price)))return false;
- if(o.orders!=null&&(!Array.isArray(o.orders)||o.orders.some(x=>!x||!Number.isInteger(x.id)||x.id<1||!validISODate(x.date)||!Number.isInteger(x.qty)||x.qty<1||x.qty>999||(x.name!=null&&typeof x.name!=='string')||(x.phone!=null&&typeof x.phone!=='string')||(x.note!=null&&typeof x.note!=='string')||(x.need!=null&&x.need!==''&&!validISODate(x.need)))))return false;
- const validOrder=x=>!!x&&Number.isInteger(x.id)&&x.id>0&&validISODate(x.date)&&Number.isInteger(x.qty)&&x.qty>=1&&x.qty<=999&&(x.name==null||typeof x.name==='string')&&(x.phone==null||typeof x.phone==='string')&&(x.note==null||typeof x.note==='string')&&(x.need==null||x.need===''||validISODate(x.need))&&(x.orderNo==null||typeof x.orderNo==='string');
+ if(o.orders!=null&&(!Array.isArray(o.orders)||o.orders.some(x=>!x||!Number.isInteger(x.id)||x.id<1||!validISODate(x.date)||!Number.isInteger(x.qty)||x.qty<1||x.qty>999||(x.name!=null&&typeof x.name!=='string')||(x.phone!=null&&typeof x.phone!=='string')||(x.note!=null&&typeof x.note!=='string')||(x.need!=null&&typeof x.need!=='string'))))return false;
+ const validOrder=x=>!!x&&Number.isInteger(x.id)&&x.id>0&&validISODate(x.date)&&Number.isInteger(x.qty)&&x.qty>=1&&x.qty<=999&&(x.name==null||typeof x.name==='string')&&(x.phone==null||typeof x.phone==='string')&&(x.note==null||typeof x.note==='string')&&(x.need==null||typeof x.need==='string')&&(x.orderNo==null||typeof x.orderNo==='string');
  if(o.orders!=null&&(!Array.isArray(o.orders)||o.orders.some(x=>!validOrder(x))))return false;
  if(o.suppliedOrders!=null&&(!Array.isArray(o.suppliedOrders)||o.suppliedOrders.some(x=>!validOrder(x)||!validISODate(x.suppliedDate||x.date))))return false;
  if(o.supplier!=null&&(typeof o.supplier!=='object'||Array.isArray(o.supplier)||(o.supplier.name!=null&&typeof o.supplier.name!=='string')||(o.supplier.phone!=null&&typeof o.supplier.phone!=='string')||(o.supplier.cc!=null&&typeof o.supplier.cc!=='string')))return false;
